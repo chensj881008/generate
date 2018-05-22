@@ -1,4 +1,4 @@
-package cn.com.ss.generate.util;
+package cn.com.ss.customer.generate.util;
 
 import java.sql.*;
 
@@ -15,8 +15,6 @@ public class ConnectionUtil {
      * @return Connection
      */
     public static synchronized Connection getConnection() {
-
-
         // 读出配置信息
         String driverClassName = PropertiesLoader.getProperty("db.driverClassName");
         String url = PropertiesLoader.getProperty("db.url");
@@ -62,7 +60,16 @@ public class ConnectionUtil {
         }
     }
 
-
+    public static void closeResultSet( ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+                rs = null;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     private ConnectionUtil() {
     }

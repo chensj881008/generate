@@ -1,4 +1,4 @@
-package cn.com.ss.generate.util;
+package cn.com.ss.customer.generate.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
