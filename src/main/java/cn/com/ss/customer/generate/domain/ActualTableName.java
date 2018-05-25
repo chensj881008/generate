@@ -4,7 +4,7 @@ import static cn.com.ss.customer.generate.util.StringUtils.composeFullyQualified
 
 /**
  * @author chenshijie
- * @title
+ * @title 表的全路径信息 包含catalog,schema和tablename
  * @email chensj@winning.com.cm
  * @package cn.com.ss.customer.generate.domain
  * @date 2018-05-22 22:59

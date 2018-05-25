@@ -2,7 +2,7 @@ package cn.com.ss.customer.generate.util;
 
 /**
  * @author chenshijie
- * @title
+ * @title 字符串工具类
  * @email chensj@winning.com.cm
  * @package cn.com.ss.customer.generate.util
  * @date 2018-05-22 23:00

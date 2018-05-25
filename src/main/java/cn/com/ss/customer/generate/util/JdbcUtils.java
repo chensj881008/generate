@@ -5,7 +5,7 @@ import java.sql.Types;
 
 /**
  * @author chenshijie
- * @title
+ * @title JDBC工具类
  * @email chensj@winning.com.cm
  * @package cn.com.ss.customer.generate.util
  * @date 2018-05-25 16:12
@@ -123,8 +123,6 @@ public class JdbcUtils implements JdbcConstants {
 
         }
     }
-
-
 
     public static String getDriverClassName(String rawUrl) throws SQLException {
         if (rawUrl == null) {

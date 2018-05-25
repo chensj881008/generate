@@ -1,14 +1,21 @@
 package cn.com.ss.customer.generate.test;
 
+import cn.com.ss.customer.generate.code.java.JavaDomainGenerator;
 import cn.com.ss.customer.generate.domain.TableInfo;
 import cn.com.ss.customer.generate.util.ConnectionUtil;
 import cn.com.ss.customer.generate.util.DatabaseUtils;
+import cn.com.ss.customer.generate.util.FileUtils;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+import java.util.Map;
 
 /**
  * @author chenshijie
@@ -36,9 +43,26 @@ public class MainTest {
             return;
         }
         try {
-            TableInfo info = DatabaseUtils.getTableInfo("SYS_USER_INFO",connection);
-            System.out.println(info);
+            TableInfo info = DatabaseUtils.getTableInfo("SYS_REPORT_INFO",connection);
+            JavaDomainGenerator generator = new JavaDomainGenerator();
+            generator.setTableInfo(info);
+            Map<String,Object>  data = generator.generateHeader();
+            Configuration config = new Configuration();
+            Writer writer = null;
+            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("domain.ftl");
+            String path = info.getDomainPath();
+            String pack = info.getDomainPackage();
+            String targePath = FileUtils.createABSPath(path,pack);
+            File file = new File(targePath+File.separator+info.getDomainName()+".java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data,writer);
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
             e.printStackTrace();
         }
     }

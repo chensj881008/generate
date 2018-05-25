@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @author chenshijie
- * @title
+ * @title 表信息 数据库中表信息
  * @email chensj@winning.com.cm
  * @package cn.com.ss.customer.generate
  * @date 2018-05-22 22:05
@@ -24,6 +24,10 @@ public class TableInfo {
      * 对象所在包
      */
     private String domainPackage;
+    /**
+     * 文件放置目录
+     */
+    private String domainPath;
     /**
      * 对象别名
      */
@@ -119,6 +123,14 @@ public class TableInfo {
 
     public void setSchema(String schema) {
         this.schema = schema;
+    }
+
+    public String getDomainPath() {
+        return domainPath;
+    }
+
+    public void setDomainPath(String domainPath) {
+        this.domainPath = domainPath;
     }
 
     @Override

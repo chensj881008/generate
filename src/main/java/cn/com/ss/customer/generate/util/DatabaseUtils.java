@@ -18,13 +18,20 @@ import java.util.*;
  */
 public class DatabaseUtils {
 
-
+    /**
+     * 获取数据库表信息
+     * @param tableName 表名
+     * @param connection 数据库连接
+     * @return info
+     * @throws SQLException
+     */
     public static TableInfo getTableInfo(String tableName, Connection connection) throws SQLException {
         TableInfo info = new TableInfo();
         info.setTableName(tableName);
         info.setDomainName(DatabaseNameUtils.convertFromDBToJava(tableName,0));
         info.setAlias(DatabaseNameUtils.convertFromDBToJava(tableName,1));
-        info.setDomainPackage(Constant.DAO_PACKAGE);
+        info.setDomainPackage(Constant.DOMAIN_PACKAGE);
+        info.setDomainPath(PropertiesLoader.getProperty("config.path"));
         DatabaseMetaData metaData =  connection.getMetaData();
         getPrimaryKey(metaData,info);
         getColumns(metaData,info);
@@ -33,8 +40,8 @@ public class DatabaseUtils {
 
     /**
      * 获取主键信息
-     * @param metaData
-     * @param tableInfo
+     * @param metaData 数据库元数据
+     * @param tableInfo 表信息domain
      */
     public static void getPrimaryKey(DatabaseMetaData metaData,  TableInfo tableInfo)  {
         ResultSet rs = null;
@@ -71,6 +78,12 @@ public class DatabaseUtils {
       tableInfo.setActualTableName(atn);
     }
 
+    /**
+     * 获取列信息
+     * @param databaseMetaData
+     * @param tableInfo
+     * @throws SQLException
+     */
     public static void  getColumns(DatabaseMetaData databaseMetaData, TableInfo tableInfo) throws SQLException {
         Map<ActualTableName,List<TableColumnInfo>> answer = new HashMap<>();
         ResultSet rs = databaseMetaData.getColumns(tableInfo.getCatalog(),tableInfo.getSchema(), tableInfo.getTableName(), "%");
@@ -91,6 +104,7 @@ public class DatabaseUtils {
             TableColumnInfo columnInfo = new TableColumnInfo();
             columnInfo.setJdbcType(rs.getInt("DATA_TYPE"));
             columnInfo.setJdbcTypeName(JdbcUtils.getTypeName(rs.getInt("DATA_TYPE")));
+
             columnInfo.setLength(rs.getInt("COLUMN_SIZE")); 
             columnInfo.setActualColumnName(rs.getString("COLUMN_NAME")); 
             columnInfo.setDomainColumnName(DatabaseNameUtils.convertFromDBToJava(rs.getString("COLUMN_NAME"),1)); 
@@ -107,6 +121,8 @@ public class DatabaseUtils {
                 columnInfo.setGeneratedColumn(
                         "YES".equals(rs.getString("IS_GENERATEDCOLUMN")));  //$NON-NLS-2$
             }
+
+            columnInfo.setFullyQualifiedJavaType(JavaTypeResolverUtils.generateJavaType(columnInfo));
             List<TableColumnInfo> columns = answer.get(atn);
             if (columns == null) {
                 columns = new ArrayList<TableColumnInfo>();

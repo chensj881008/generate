@@ -4,7 +4,7 @@ import cn.com.ss.customer.generate.util.PropertiesLoader;
 
 /**
  * @author chenshijie
- * @title
+ * @title 常量类
  * @email chensj@winning.com.cm
  * @package cn.com.ss.customer.generate
  * @date 2018-05-22 22:50

@@ -2,7 +2,7 @@ package cn.com.ss.customer.generate.util;
 
 /**
  * @author chenshijie
- * @title
+ * @title JDBC常量
  * @email chensj@winning.com.cm
  * @package cn.com.ss.customer.generate.util
  * @date 2018-05-25 16:12

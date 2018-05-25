@@ -4,7 +4,7 @@ import java.sql.*;
 
 /**
  * @author chenshijie
- * @title 获取连接信息
+ * @title 获取数据库连接信息
  * @email chensj@winning.com.cm
  * @package cn.com.ss.generate.util
  * @date 2018-05-21 21:57

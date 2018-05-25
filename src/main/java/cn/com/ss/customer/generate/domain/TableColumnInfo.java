@@ -1,8 +1,10 @@
 package cn.com.ss.customer.generate.domain;
 
+import cn.com.ss.customer.generate.util.FullyQualifiedJavaType;
+
 /**
  * @author chenshijie
- * @title
+ * @title 列信息
  * @email chensj@winning.com.cm
  * @package cn.com.ss.customer.generate.domain
  * @date 2018-05-22 22:06
@@ -20,6 +22,13 @@ public class TableColumnInfo {
      * 字段类型名称
      */
     protected String jdbcTypeName;
+
+    /**
+     * java字段类型
+     */
+    protected FullyQualifiedJavaType fullyQualifiedJavaType;
+
+    protected boolean stringColumn;
     /**
      * 是否可以为null
      */
@@ -57,6 +66,8 @@ public class TableColumnInfo {
      * 工具生成字段
      */
     protected boolean generatedColumn;
+
+    protected String typeName;
 
     public String getActualColumnName() {
         return actualColumnName;
@@ -154,6 +165,14 @@ public class TableColumnInfo {
         return generatedColumn;
     }
 
+    public FullyQualifiedJavaType getFullyQualifiedJavaType() {
+        return fullyQualifiedJavaType;
+    }
+
+    public void setFullyQualifiedJavaType(FullyQualifiedJavaType fullyQualifiedJavaType) {
+        this.fullyQualifiedJavaType = fullyQualifiedJavaType;
+    }
+
     @Override
     public String toString() {
         return "TableColumnInfo{" +
@@ -170,5 +189,22 @@ public class TableColumnInfo {
                 ", scale=" + scale +
                 ", generatedColumn=" + generatedColumn +
                 '}';
+    }
+
+    public boolean isStringColumn() {
+        return fullyQualifiedJavaType.equals(FullyQualifiedJavaType
+                .getStringInstance());
+    }
+
+    public void setStringColumn(boolean stringColumn) {
+        this.stringColumn = stringColumn;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }
