@@ -57,10 +57,4 @@ public class PropertiesLoader {
         }
         return tableNameList;
     }
-
-    public static void getCatalogAndSchema(){
-        String url = properties.getProperty("db.url");
-
-
-    }
 }
