@@ -153,4 +153,22 @@ public class TableColumnInfo {
     public boolean isGeneratedColumn() {
         return generatedColumn;
     }
+
+    @Override
+    public String toString() {
+        return "TableColumnInfo{" +
+                "actualColumnName='" + actualColumnName + '\'' +
+                ", jdbcType=" + jdbcType +
+                ", jdbcTypeName='" + jdbcTypeName + '\'' +
+                ", nullable=" + nullable +
+                ", length=" + length +
+                ", isSequenceColumn=" + isSequenceColumn +
+                ", remarks='" + remarks + '\'' +
+                ", defaultValue='" + defaultValue + '\'' +
+                ", domainColumnName='" + domainColumnName + '\'' +
+                ", autoIncrement=" + autoIncrement +
+                ", scale=" + scale +
+                ", generatedColumn=" + generatedColumn +
+                '}';
+    }
 }

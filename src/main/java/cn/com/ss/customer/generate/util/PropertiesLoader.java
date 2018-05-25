@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,7 @@ public class PropertiesLoader {
     private static Properties properties = new Properties();
 
     static {
-        InputStream in2 = PropertiesLoader.class.getResourceAsStream("/config.properties");
-
+        InputStream in2 = PropertiesLoader.class.getClassLoader().getResourceAsStream("config.properties");
         if (in2 == null) {
             logger.info("===config.properties not found===");
         } else {
@@ -56,5 +56,11 @@ public class PropertiesLoader {
             tableNameList.add( tableNameString.split(",")[i]);
         }
         return tableNameList;
+    }
+
+    public static void getCatalogAndSchema(){
+        String url = properties.getProperty("db.url");
+
+
     }
 }

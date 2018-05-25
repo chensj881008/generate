@@ -11,6 +11,7 @@ import cn.com.ss.customer.generate.util.PropertiesLoader;
  */
 public class Constant {
 
+
     public static String PREFIX = PropertiesLoader.getProperty("config.package");
 
     public static String DOMAIN_PACKAGE = PREFIX + ".domain";

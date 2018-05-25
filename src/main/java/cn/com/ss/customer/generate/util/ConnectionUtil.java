@@ -14,7 +14,7 @@ public class ConnectionUtil {
     /**
      * @return Connection
      */
-    public static synchronized Connection getConnection() {
+    public static synchronized Connection getConnection() throws Exception {
         // 读出配置信息
         String driverClassName = PropertiesLoader.getProperty("db.driverClassName");
         String url = PropertiesLoader.getProperty("db.url");
@@ -28,6 +28,7 @@ public class ConnectionUtil {
             conn = DriverManager.getConnection(url, username, password);
         } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception(e.getMessage());
         }
 
         return conn;

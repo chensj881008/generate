@@ -37,6 +37,9 @@ public class TableInfo {
 
     private ActualTableName actualTableName;
 
+    private String catalog;
+    private String schema;
+
     public TableInfo() {
         this.tableColumnInfos = new ArrayList<>();
         this.primaryKeys = new ArrayList<>();
@@ -100,5 +103,36 @@ public class TableInfo {
 
     public void setActualTableName(ActualTableName actualTableName) {
         this.actualTableName = actualTableName;
+    }
+
+    public String getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(String catalog) {
+        this.catalog = catalog;
+    }
+
+    public String getSchema() {
+        return schema;
+    }
+
+    public void setSchema(String schema) {
+        this.schema = schema;
+    }
+
+    @Override
+    public String toString() {
+        return "TableInfo{" +
+                "tableName='" + tableName + '\'' +
+                ", domainName='" + domainName + '\'' +
+                ", domainPackage='" + domainPackage + '\'' +
+                ", alias='" + alias + '\'' +
+                ", tableColumnInfos=" + tableColumnInfos +
+                ", primaryKeys=" + primaryKeys +
+                ", actualTableName=" + actualTableName +
+                ", catalog='" + catalog + '\'' +
+                ", schema='" + schema + '\'' +
+                '}';
     }
 }

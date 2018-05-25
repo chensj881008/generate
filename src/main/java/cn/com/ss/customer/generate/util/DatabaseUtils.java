@@ -39,19 +39,26 @@ public class DatabaseUtils {
     public static void getPrimaryKey(DatabaseMetaData metaData,  TableInfo tableInfo)  {
         ResultSet rs = null;
         try {
-            rs = metaData.getPrimaryKeys("","",tableInfo.getTableName());
+            rs = metaData.getPrimaryKeys(tableInfo.getCatalog(),tableInfo.getSchema(),tableInfo.getTableName());
         } catch (SQLException e) {
             closeResultSet(rs);
             e.printStackTrace();
             return;
         }
 
+        ActualTableName atn = null ;
         try {
             Map<Short, String> keyColumns = new TreeMap<Short, String>();
             while (rs.next()) {
-                String columnName = rs.getString("COLUMN_NAME"); //$NON-NLS-1$
-                short keySeq = rs.getShort("KEY_SEQ"); //$NON-NLS-1$
+                String columnName = rs.getString("COLUMN_NAME"); 
+                short keySeq = rs.getShort("KEY_SEQ"); 
                 keyColumns.put(keySeq, columnName);
+                if(atn == null ){
+                    atn = new ActualTableName(
+                            rs.getString("TABLE_CAT"),
+                            rs.getString("TABLE_SCHEM"),
+                            rs.getString("TABLE_NAME"));
+                }
             }
 
             for (String columnName : keyColumns.values()) {
@@ -61,47 +68,45 @@ public class DatabaseUtils {
         } finally {
             closeResultSet(rs);
         }
+      tableInfo.setActualTableName(atn);
     }
 
     public static void  getColumns(DatabaseMetaData databaseMetaData, TableInfo tableInfo) throws SQLException {
         Map<ActualTableName,List<TableColumnInfo>> answer = new HashMap<>();
-        ResultSet rs = databaseMetaData.getColumns("", "", tableInfo.getTableName(), "%");
+        ResultSet rs = databaseMetaData.getColumns(tableInfo.getCatalog(),tableInfo.getSchema(), tableInfo.getTableName(), "%");
+        ActualTableName atn = tableInfo.getActualTableName();
         boolean supportsIsAutoIncrement = false;
         boolean supportsIsGeneratedColumn = false;
         ResultSetMetaData rsmd = rs.getMetaData();
         int colCount = rsmd.getColumnCount();
         for (int i = 1; i <= colCount; i++) {
-            if ("IS_AUTOINCREMENT".equals(rsmd.getColumnName(i))) { //$NON-NLS-1$
+            if ("IS_AUTOINCREMENT".equals(rsmd.getColumnName(i))) { 
                 supportsIsAutoIncrement = true;
             }
-            if ("IS_GENERATEDCOLUMN".equals(rsmd.getColumnName(i))) { //$NON-NLS-1$
+            if ("IS_GENERATEDCOLUMN".equals(rsmd.getColumnName(i))) { 
                 supportsIsGeneratedColumn = true;
             }
         }
         while (rs.next()) {
             TableColumnInfo columnInfo = new TableColumnInfo();
-            columnInfo.setJdbcType(rs.getInt("DATA_TYPE")); //$NON-NLS-1$
-            columnInfo.setLength(rs.getInt("COLUMN_SIZE")); //$NON-NLS-1$
-            columnInfo.setActualColumnName(rs.getString("COLUMN_NAME")); //$NON-NLS-1$
-            columnInfo.setDomainColumnName(DatabaseNameUtils.convertFromDBToJava(rs.getString("COLUMN_NAME"),1)); //$NON-NLS-1$
-            columnInfo.setNullable(rs.getInt("NULLABLE") == DatabaseMetaData.columnNullable); //$NON-NLS-1$
-            columnInfo.setScale(rs.getInt("DECIMAL_DIGITS")); //$NON-NLS-1$
-            columnInfo.setRemarks(rs.getString("REMARKS")); //$NON-NLS-1$
-            columnInfo.setDefaultValue(rs.getString("COLUMN_DEF")); //$NON-NLS-1$
+            columnInfo.setJdbcType(rs.getInt("DATA_TYPE"));
+            columnInfo.setJdbcTypeName(JdbcUtils.getTypeName(rs.getInt("DATA_TYPE")));
+            columnInfo.setLength(rs.getInt("COLUMN_SIZE")); 
+            columnInfo.setActualColumnName(rs.getString("COLUMN_NAME")); 
+            columnInfo.setDomainColumnName(DatabaseNameUtils.convertFromDBToJava(rs.getString("COLUMN_NAME"),1)); 
+            columnInfo.setNullable(rs.getInt("NULLABLE") == DatabaseMetaData.columnNullable); 
+            columnInfo.setScale(rs.getInt("DECIMAL_DIGITS")); 
+            columnInfo.setRemarks(rs.getString("REMARKS")); 
+            columnInfo.setDefaultValue(rs.getString("COLUMN_DEF")); 
             if (supportsIsAutoIncrement) {
                 columnInfo.setAutoIncrement(
-                        "YES".equals(rs.getString("IS_AUTOINCREMENT"))); //$NON-NLS-1$ //$NON-NLS-2$
+                        "YES".equals(rs.getString("IS_AUTOINCREMENT")));  //$NON-NLS-2$
             }
 
             if (supportsIsGeneratedColumn) {
                 columnInfo.setGeneratedColumn(
-                        "YES".equals(rs.getString("IS_GENERATEDCOLUMN"))); //$NON-NLS-1$ //$NON-NLS-2$
+                        "YES".equals(rs.getString("IS_GENERATEDCOLUMN")));  //$NON-NLS-2$
             }
-            ActualTableName atn = new ActualTableName(
-                    rs.getString("TABLE_CAT"),
-                    rs.getString("TABLE_SCHEM"),
-                    rs.getString("TABLE_NAME"));
-            tableInfo.setActualTableName(atn);
             List<TableColumnInfo> columns = answer.get(atn);
             if (columns == null) {
                 columns = new ArrayList<TableColumnInfo>();
@@ -112,6 +117,5 @@ public class DatabaseUtils {
         closeResultSet(rs);
         tableInfo.setTableColumnInfos(answer.get(tableInfo.getActualTableName()));
     }
-
-
+    
 }

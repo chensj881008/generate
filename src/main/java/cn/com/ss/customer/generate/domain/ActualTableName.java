@@ -36,4 +36,25 @@ public class ActualTableName {
     public String getTableName() {
         return tableName;
     }
+
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    public void setCatalog(String catalog) {
+        this.catalog = catalog;
+    }
+
+    public void setSchema(String schema) {
+        this.schema = schema;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 }
