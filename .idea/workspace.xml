@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634f5ca1-a2ec-42c1-9fa3-4d813709630b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/App.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/config/Configuration.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/ConvertTableToDomain.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/DBColumnInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/DBTableInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/GenerateTableInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/FullyJavaTypeInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/JavaTypeResolver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/PrimitiveTypeWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/ConnectionUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/PropertiesLoader.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/StringUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/cn/com/ss/AppTest.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/template/client.ftl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/template/mybatis.ftl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/template/sqlmap.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
@@ -22,7 +12,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PropertiesLoader.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PropertiesLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/JavaDomainGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/JavaFileGenerator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,111 +30,119 @@
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TableInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="33" column="27" lean-forward="false" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-              <folding>
-                <element signature="e#2257#2258#0" expanded="true" />
-                <element signature="e#2287#2288#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TableColumnInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableColumnInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="157" column="18" lean-forward="false" selection-start-line="157" selection-start-column="18" selection-end-line="157" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActualTableName.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/ActualTableName.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding>
-                <element signature="e#955#956#0" expanded="true" />
-                <element signature="e#997#998#0" expanded="true" />
-                <element signature="e#1043#1044#0" expanded="true" />
-                <element signature="e#1081#1082#0" expanded="true" />
-                <element signature="e#1125#1126#0" expanded="true" />
-                <element signature="e#1161#1162#0" expanded="true" />
-                <element signature="e#1196#1197#0" expanded="true" />
-                <element signature="e#1227#1228#0" expanded="true" />
-                <element signature="e#1275#1276#0" expanded="true" />
-                <element signature="e#1315#1316#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JdbcUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JdbcUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="223" column="25" lean-forward="false" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
-              <folding>
-                <element signature="method#getDriverClassName#0;class#JdbcUtils#0" expanded="false" />
-                <element signature="method#getDbType#0;class#JdbcUtils#0" expanded="false" />
-                <element signature="method#loadClass#0;class#JdbcUtils#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JdbcConstants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JdbcConstants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="38" column="31" lean-forward="false" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertiesLoader.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PropertiesLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-              <folding>
-                <element signature="e#1372#1373#0" expanded="true" />
-                <element signature="e#1422#1423#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.3950777">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Constant.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CommentGenerator.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/CommentGenerator.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="884">
+                  <caret line="55" column="31" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="31" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="sqlmap.ftl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/template/sqlmap.ftl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1003">
+                  <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="domain.ftl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/template/domain.ftl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="client.ftl" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/template/client.ftl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="357">
+                  <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AbstractGenerator.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/AbstractGenerator.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#438#439#0" expanded="true" />
+                    <element signature="e#480#481#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="TableInfo.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableInfo.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="273">
+                  <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#1280#1281#0" expanded="true" />
+                    <element signature="e#1316#1317#0" expanded="true" />
+                    <element signature="e#1836#1837#0" expanded="true" />
+                    <element signature="e#1870#1871#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DatabaseUtils.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseUtils.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="205">
+                  <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="53" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="290">
+                  <caret line="99" column="38" lean-forward="false" selection-start-line="99" selection-start-column="38" selection-end-line="99" selection-end-column="38" />
+                  <folding>
+                    <element signature="method#generateDomainFile#0;class#MainTest#0" expanded="false" />
+                    <element signature="method#generateMyBatisConfigFile#0;class#MainTest#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -162,11 +163,16 @@
       <find>schema</find>
       <find>getSchema</find>
       <find>//$NON-NLS-1$</find>
+      <find>package cn\.com\.ss\.customer\.generate\.code\.java\;\n\n\/\*\*\n \* \@author chenshijie\n \* \@title\n \* \@email chensj\@winning\.com\.cm\n \* \@package cn\.com\.ss\.customer\.generate\.code\.java\n \* \@date 2018\-05\-25 21\:55\n \*\/\npublic class CommentGenerator \{\n\n    public void addClassComment\(InnerClass innerClass\,\n                                IntrospectedTable introspectedTable\) \{\n        if \(suppressAllComments\) \{\n            return\;\n        \}\n\n        StringBuilder sb \= new StringBuilder\(\)\;\n\n        innerClass\.addJavaDocLine\(\&quot;\/\*\*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        innerClass\n                \.addJavaDocLine\(\&quot; \* This class was generated by MyBatis Generator\.\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        sb\.append\(\&quot; \* This class corresponds to the database table \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        innerClass\.addJavaDocLine\(sb\.toString\(\)\)\;\n\n        addJavadocTag\(innerClass\, false\)\;\n\n        innerClass\.addJavaDocLine\(\&quot; \*\/\&quot;\)\; \/\/\$NON\-NLS\-1\$\n    \}\n\n    \@Override\n    public void addClassComment\(InnerClass innerClass\,\n                                IntrospectedTable introspectedTable\, boolean markAsDoNotDelete\) \{\n        if \(suppressAllComments\) \{\n            return\;\n        \}\n\n        StringBuilder sb \= new StringBuilder\(\)\;\n\n        innerClass\.addJavaDocLine\(\&quot;\/\*\*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        innerClass\n                \.addJavaDocLine\(\&quot; \* This class was generated by MyBatis Generator\.\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        sb\.append\(\&quot; \* This class corresponds to the database table \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        innerClass\.addJavaDocLine\(sb\.toString\(\)\)\;\n\n        addJavadocTag\(innerClass\, markAsDoNotDelete\)\;\n\n        innerClass\.addJavaDocLine\(\&quot; \*\/\&quot;\)\; \/\/\$NON\-NLS\-1\$\n    \}\n\n    \@Override\n    public void addModelClassComment\(TopLevelClass topLevelClass\,\n                                     IntrospectedTable introspectedTable\) \{\n        if \(suppressAllComments  \|\| \!addRemarkComments\) \{\n            return\;\n        \}\n\n        topLevelClass\.addJavaDocLine\(\&quot;\/\*\*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        String remarks \= introspectedTable\.getRemarks\(\)\;\n        if \(addRemarkComments \&amp;\&amp; StringUtility\.stringHasValue\(remarks\)\) \{\n            topLevelClass\.addJavaDocLine\(\&quot; \* Database Table Remarks\:\&quot;\)\; \/\/\$NON\-NLS\-1\$\n            String\[\] remarkLines \= remarks\.split\(System\.getProperty\(\&quot;line\.separator\&quot;\)\)\;  \/\/\$NON\-NLS\-1\$\n            for \(String remarkLine \: remarkLines\) \{\n                topLevelClass\.addJavaDocLine\(\&quot; \*   \&quot; \+ remarkLine\)\;  \/\/\$NON\-NLS\-1\$\n            \}\n        \}\n        topLevelClass\.addJavaDocLine\(\&quot; \*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        topLevelClass\n                \.addJavaDocLine\(\&quot; \* This class was generated by MyBatis Generator\.\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        StringBuilder sb \= new StringBuilder\(\)\;\n        sb\.append\(\&quot; \* This class corresponds to the database table \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        topLevelClass\.addJavaDocLine\(sb\.toString\(\)\)\;\n\n        addJavadocTag\(topLevelClass\, true\)\;\n\n        topLevelClass\.addJavaDocLine\(\&quot; \*\/\&quot;\)\; \/\/\$NON\-NLS\-1\$\n    \}\n\n    public void addFieldComment\(Field field\,\n                                IntrospectedTable introspectedTable\,\n                                IntrospectedColumn introspectedColumn\) \{\n        if \(suppressAllComments\) \{\n            return\;\n        \}\n\n        field\.addJavaDocLine\(\&quot;\/\*\*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        String remarks \= introspectedColumn\.getRemarks\(\)\;\n        if \(addRemarkComments \&amp;\&amp; StringUtility\.stringHasValue\(remarks\)\) \{\n            field\.addJavaDocLine\(\&quot; \* Database Column Remarks\:\&quot;\)\; \/\/\$NON\-NLS\-1\$\n            String\[\] remarkLines \= remarks\.split\(System\.getProperty\(\&quot;line\.separator\&quot;\)\)\;  \/\/\$NON\-NLS\-1\$\n            for \(String remarkLine \: remarkLines\) \{\n                field\.addJavaDocLine\(\&quot; \*   \&quot; \+ remarkLine\)\;  \/\/\$NON\-NLS\-1\$\n            \}\n        \}\n\n        field\.addJavaDocLine\(\&quot; \*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        field\n                \.addJavaDocLine\(\&quot; \* This field was generated by MyBatis Generator\.\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        StringBuilder sb \= new StringBuilder\(\)\;\n        sb\.append\(\&quot; \* This field corresponds to the database column \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        sb\.append\(\'\.\'\)\;\n        sb\.append\(introspectedColumn\.getActualColumnName\(\)\)\;\n        field\.addJavaDocLine\(sb\.toString\(\)\)\;\n\n        addJavadocTag\(field\, false\)\;\n\n        field\.addJavaDocLine\(\&quot; \*\/\&quot;\)\; \/\/\$NON\-NLS\-1\$\n    \}\n\n    \@Override\n    public void addFieldComment\(Field field\, IntrospectedTable introspectedTable\) \{\n        if \(suppressAllComments\) \{\n            return\;\n        \}\n\n        StringBuilder sb \= new StringBuilder\(\)\;\n\n        field\.addJavaDocLine\(\&quot;\/\*\*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        field\n                \.addJavaDocLine\(\&quot; \* This field was generated by MyBatis Generator\.\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        sb\.append\(\&quot; \* This field corresponds to the database table \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        field\.addJavaDocLine\(sb\.toString\(\)\)\;\n\n        addJavadocTag\(field\, false\)\;\n\n        field\.addJavaDocLine\(\&quot; \*\/\&quot;\)\; \/\/\$NON\-NLS\-1\$\n    \}\n\n    \@Override\n    public void addGeneralMethodComment\(Method method\,\n                                        IntrospectedTable introspectedTable\) \{\n        if \(suppressAllComments\) \{\n            return\;\n        \}\n\n        StringBuilder sb \= new StringBuilder\(\)\;\n\n        method\.addJavaDocLine\(\&quot;\/\*\*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        method\n                \.addJavaDocLine\(\&quot; \* This method was generated by MyBatis Generator\.\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        sb\.append\(\&quot; \* This method corresponds to the database table \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        method\.addJavaDocLine\(sb\.toString\(\)\)\;\n\n        addJavadocTag\(method\, false\)\;\n\n        method\.addJavaDocLine\(\&quot; \*\/\&quot;\)\; \/\/\$NON\-NLS\-1\$\n    \}\n\n    \@Override\n    public void addGetterComment\(Method method\,\n                                 IntrospectedTable introspectedTable\,\n                                 IntrospectedColumn introspectedColumn\) \{\n        if \(suppressAllComments\) \{\n            return\;\n        \}\n\n        StringBuilder sb \= new StringBuilder\(\)\;\n\n        method\.addJavaDocLine\(\&quot;\/\*\*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        method\n                \.addJavaDocLine\(\&quot; \* This method was generated by MyBatis Generator\.\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        sb\.append\(\&quot; \* This method returns the value of the database column \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        sb\.append\(\'\.\'\)\;\n        sb\.append\(introspectedColumn\.getActualColumnName\(\)\)\;\n        method\.addJavaDocLine\(sb\.toString\(\)\)\;\n\n        method\.addJavaDocLine\(\&quot; \*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n\n        sb\.setLength\(0\)\;\n        sb\.append\(\&quot; \* \@return the value of \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        sb\.append\(\'\.\'\)\;\n        sb\.append\(introspectedColumn\.getActualColumnName\(\)\)\;\n        method\.addJavaDocLine\(sb\.toString\(\)\)\;\n\n        addJavadocTag\(method\, false\)\;\n\n        method\.addJavaDocLine\(\&quot; \*\/\&quot;\)\; \/\/\$NON\-NLS\-1\$\n    \}\n\n    \@Override\n    public void addSetterComment\(Method method\,\n                                 IntrospectedTable introspectedTable\,\n                                 IntrospectedColumn introspectedColumn\) \{\n        if \(suppressAllComments\) \{\n            return\;\n        \}\n\n        StringBuilder sb \= new StringBuilder\(\)\;\n\n        method\.addJavaDocLine\(\&quot;\/\*\*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        method\.addJavaDocLine\(\&quot; \* This method was generated by MyBatis Generator\.\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(\&quot; \* This method sets the value of the database column \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        sb\.append\(\'\.\'\)\;\n        sb\.append\(introspectedColumn\.getActualColumnName\(\)\)\;\n        method\.addJavaDocLine\(sb\.toString\(\)\)\;\n        method\.addJavaDocLine\(\&quot; \*\&quot;\)\; \/\/\$NON\-NLS\-1\$\n        Parameter parm \= method\.getParameters\(\)\.get\(0\)\;\n        sb\.setLength\(0\)\;\n        sb\.append\(\&quot; \* \@param \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(parm\.getName\(\)\)\;\n        sb\.append\(\&quot; the value for \&quot;\)\; \/\/\$NON\-NLS\-1\$\n        sb\.append\(introspectedTable\.getFullyQualifiedTable\(\)\)\;\n        sb\.append\(\'\.\'\)\;\n        sb\.append\(introspectedColumn\.getActualColumnName\(\)\)\;\n        method\.addJavaDocLine\(sb\.toString\(\)\)\;\n        addJavadocTag\(method\, false\)\;\n        method\.addJavaDocLine\(\&quot; \*\/\&quot;\)\; \/\/\$NON\-NLS\-1\$\n    \}\n\}\n</find>
+      <find>T</find>
+      <find>paramT</find>
     </findStrings>
     <replaceStrings>
       <replace>PACKAGE</replace>
       <replace>columnInfo</replace>
       <replace />
+      <replace>${domainName}</replace>
+      <replace>${paramT}</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -180,12 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/config/util/FtpPropertiesLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/config/util/PropertiesLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/config/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/PropertiesLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/DBTableInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/ConvertDbToJava.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/JavaTypeResolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/JavaTypeResolve.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/JavaTypeResolver.java" />
@@ -199,21 +199,44 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/TableInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/DatabaseUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/ConnectionUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseNameUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PropertiesLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/ActualTableName.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/ConnectionUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseNameUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JdbcConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/StringUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/file/GeneratedFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/file/java/GeneratedJavaFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/file/AbstractGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/AbstractGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/FullyJavaTypeUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PrimitiveTypeWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/Parameter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JavaVisibility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JdbcUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/AbstractJavaGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/Method.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/CommentGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JavaBeansUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JavaTypeResolverUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/FullyQualifiedJavaType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DateUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/ValueUtils.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/FileUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableColumnInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/template/domain.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/JavaDomainGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/template/client.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JdbcConstants.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JdbcUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/template/mybatis.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/JavaFileGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/template/sqlmap.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/ActualTableName.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableColumnInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PropertiesLoader.java" />
       </list>
     </option>
   </component>
@@ -265,10 +288,13 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="462" />
-    <option name="y" value="172" />
+    <option name="x" value="81" />
+    <option name="y" value="80" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -285,10 +311,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -326,23 +351,70 @@
               <item name="generate" type="b2602c69:ProjectViewProjectNode" />
               <item name="generate" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyBatisGeneratorExtra/mybatis-generator-core" />
+    <property name="last_opened_file_path" value="D:/winning_code/manger/ssgjm" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate" />
   </component>
   <component name="RecentsManager">
@@ -371,6 +443,25 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.MainTest">
+    <configuration name="FileUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cn.com.ss.customer.generate.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="cn.com.ss.customer.generate.util.FileUtils" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="generator" />
+      <envs />
+    </configuration>
     <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -471,9 +562,14 @@
       <properties />
       <listeners />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.MainTest" />
+      <item index="1" class="java.lang.String" itemvalue="Application.FileUtils" />
+    </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Application.MainTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.FileUtils" />
       </list>
     </recent_temporary>
   </component>
@@ -497,7 +593,11 @@
       <updated>1526909893125</updated>
       <workItem from="1526909897025" duration="1732000" />
       <workItem from="1526993994684" duration="8047000" />
-      <workItem from="1527229369344" duration="8304000" />
+      <workItem from="1527229369344" duration="8396000" />
+      <workItem from="1527243905972" duration="11852000" />
+      <workItem from="1527264087910" duration="2431000" />
+      <workItem from="1527272853547" duration="6613000" />
+      <workItem from="1527344052760" duration="10994000" />
     </task>
     <task id="LOCAL-00001" summary="sd">
       <created>1527002013058</created>
@@ -513,11 +613,25 @@
       <option name="project" value="LOCAL" />
       <updated>1527240315490</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="去除不必要的文件">
+      <created>1527240424774</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1527240424774</updated>
+    </task>
+    <task id="LOCAL-00004" summary="去除不必要的文件">
+      <created>1527278795244</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1527278795244</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18083000" />
+    <option name="totallyTimeSpent" value="50065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -530,35 +644,36 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.042951543" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30549452" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30506608" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39977974" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20484582" sideWeight="0.50319827" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20484582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26211452" sideWeight="0.4968017" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17697228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3524229" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35792953" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -566,7 +681,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39977974" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20484582" sideWeight="0.50319827" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -575,18 +690,19 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21145375" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3524229" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.042951543" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30549452" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30506608" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4185022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34911895" sideWeight="0.4968017" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17697228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -601,235 +717,41 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sd" />
     <MESSAGE value="数据库通用配置完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="数据库通用配置完成" />
+    <MESSAGE value="去除不必要的文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="去除不必要的文件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/FileUtils.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/FileUtils.java</url>
+          <line>17</line>
+          <properties />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="96" column="49" lean-forward="false" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#959#960#0" expanded="false" />
-            <element signature="e#1001#1002#0" expanded="false" />
-            <element signature="e#1123#1124#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="false" />
-            <element signature="e#2098#2099#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="36" lean-forward="true" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PropertiesLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#1422#1423#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseNameUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/ConnectionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="5" lean-forward="false" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/ConvertTableToDomain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="66" column="9" lean-forward="true" selection-start-line="50" selection-start-column="6" selection-end-line="66" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1669#1684#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/ConnectionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="59" lean-forward="false" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/PropertiesLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="57" column="29" lean-forward="false" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/config/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/JavaTypeResolver.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/FullyJavaTypeInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/PrimitiveTypeWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="53" lean-forward="true" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/JavaTypeResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/dev/java/jdk1.8.0_144/src.zip!/java/sql/DatabaseMetaData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="2004" column="41" lean-forward="false" selection-start-line="2004" selection-start-column="36" selection-end-line="2004" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/GenerateTableInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="55" lean-forward="false" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/PropertiesLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/DBTableInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="25" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="29" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/DBColumnInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/ConnectionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="64" column="4" lean-forward="false" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding>
-            <element signature="e#265#266#0" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/ConvertTableToDomain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="862">
-          <caret line="54" column="73" lean-forward="false" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/GenerateTableInfo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/StringUtils.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/PropertiesLoader.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/DBTableInfo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/DBColumnInfo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/ConnectionUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/ConvertTableToDomain.java" />
     <entry file="file://$PROJECT_DIR$/target/classes/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,31 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseNameUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="51" column="17" lean-forward="false" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/ConnectionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,9 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#105804#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -879,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -887,15 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="1173" column="49" lean-forward="false" selection-start-line="1173" selection-start-column="18" selection-end-line="1173" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,15 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="316" column="20" lean-forward="false" selection-start-line="316" selection-start-column="4" selection-end-line="316" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,36 +794,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="707" column="0" lean-forward="false" selection-start-line="707" selection-start-column="0" selection-end-line="707" selection-end-column="0" />
-          <folding>
-            <marker date="1522891244903" expanded="true" signature="33629:33830" ph="('dbo', 'gue... " />
-            <marker date="1522891244903" expanded="true" signature="34073:34107" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34187:34207" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34255:34310" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34399:34413" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34469:34479" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34525:34545" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34583:34591" ph="select sys.s... schemas" />
-            <marker date="1522891244903" expanded="true" signature="34714:34745" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34801:34807" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34860:34864" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="34936:34962" ph="select sys.s... " />
-            <marker date="1522891244903" expanded="true" signature="35001:35015" ph="select sys.s... " />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/ActualTableName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="6" column="44" lean-forward="false" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/ConnectionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JdbcConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="38" column="31" lean-forward="false" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseNameUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/file/GeneratedFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/file/java/GeneratedJavaFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PrimitiveTypeWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/Parameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JavaVisibility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="18" lean-forward="false" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="821">
+          <caret line="122" column="44" lean-forward="false" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/Field.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JdbcUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="223" column="25" lean-forward="false" selection-start-line="223" selection-start-column="25" selection-end-line="223" selection-end-column="25" />
+        <state relative-caret-position="255">
+          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
             <element signature="method#getDriverClassName#0;class#JdbcUtils#0" expanded="false" />
             <element signature="method#getDbType#0;class#JdbcUtils#0" expanded="false" />
@@ -957,72 +897,198 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JavaBeansUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="33" column="27" lean-forward="false" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+        <state relative-caret-position="474">
+          <caret line="93" column="45" lean-forward="false" selection-start-line="93" selection-start-column="45" selection-end-line="93" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/AbstractJavaGenerator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/FullyQualifiedJavaType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="10" lean-forward="false" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/dev/java/jdk1.8.0_144/src.zip!/java/sql/DatabaseMetaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="71" column="17" lean-forward="false" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/ValueUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DateUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
           <folding>
-            <element signature="e#2257#2258#0" expanded="true" />
-            <element signature="e#2287#2288#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#404#405#0" expanded="false" />
+            <element signature="e#452#453#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/JavaTypeResolverUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="493">
+          <caret line="103" column="41" lean-forward="false" selection-start-line="103" selection-start-column="41" selection-end-line="103" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="initializer##0;class#JavaTypeResolverUtils#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseUtils.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1669#1684#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/ActualTableName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="e#997#998#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-            <element signature="e#1125#1126#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1196#1197#0" expanded="true" />
-            <element signature="e#1227#1228#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-            <element signature="e#1315#1316#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableColumnInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="157" column="18" lean-forward="false" selection-start-line="157" selection-start-column="18" selection-end-line="157" selection-end-column="18" />
+        <state relative-caret-position="1037">
+          <caret line="61" column="17" lean-forward="false" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/PropertiesLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="58" column="5" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="26" column="91" lean-forward="false" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/CommentGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="55" column="31" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="31" />
           <folding>
-            <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#1422#1423#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/AbstractGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/template/mybatis.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableColumnInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="55" column="37" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/template/client.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/template/sqlmap.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/template/domain.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/util/DatabaseUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/domain/TableInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+          <folding>
+            <element signature="e#1280#1281#0" expanded="true" />
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1836#1837#0" expanded="true" />
+            <element signature="e#1870#1871#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/JavaFileGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="60" column="31" lean-forward="false" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="99" column="38" lean-forward="false" selection-start-line="99" selection-start-column="38" selection-end-line="99" selection-end-column="38" />
+          <folding>
+            <element signature="method#generateDomainFile#0;class#MainTest#0" expanded="false" />
+            <element signature="method#generateMyBatisConfigFile#0;class#MainTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
