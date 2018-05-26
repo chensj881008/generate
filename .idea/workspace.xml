@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="634f5ca1-a2ec-42c1-9fa3-4d813709630b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/template/client.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/template/mybatis.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/template/sqlmap.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/Constant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config.properties" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/JavaDomainGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/JavaFileGenerator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -127,7 +115,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="290">
@@ -136,6 +124,16 @@
                     <element signature="method#generateDomainFile#0;class#MainTest#0" expanded="false" />
                     <element signature="method#generateMyBatisConfigFile#0;class#MainTest#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -186,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/dbinfo/JavaTypeResolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/JavaTypeResolve.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/convert/type/JavaTypeResolver.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/generate/util/StringUtils.java" />
@@ -237,6 +234,7 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/code/java/JavaFileGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/resources/template/sqlmap.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/ss/customer/generate/test/MainTest.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -597,7 +595,7 @@
       <workItem from="1527243905972" duration="11852000" />
       <workItem from="1527264087910" duration="2431000" />
       <workItem from="1527272853547" duration="6613000" />
-      <workItem from="1527344052760" duration="10994000" />
+      <workItem from="1527344052760" duration="11610000" />
     </task>
     <task id="LOCAL-00001" summary="sd">
       <created>1527002013058</created>
@@ -627,11 +625,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527278795244</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="添加domain、sqlmap、config和dao生成代码">
+      <created>1527357613949</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1527357613949</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50065000" />
+    <option name="totallyTimeSpent" value="50681000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -718,7 +723,8 @@
     <MESSAGE value="sd" />
     <MESSAGE value="数据库通用配置完成" />
     <MESSAGE value="去除不必要的文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="去除不必要的文件" />
+    <MESSAGE value="添加domain、sqlmap、config和dao生成代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加domain、sqlmap、config和dao生成代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -794,13 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="707" column="0" lean-forward="false" selection-start-line="707" selection-start-column="0" selection-end-line="707" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1090,6 +1089,14 @@
             <element signature="method#generateDomainFile#0;class#MainTest#0" expanded="false" />
             <element signature="method#generateMyBatisConfigFile#0;class#MainTest#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
