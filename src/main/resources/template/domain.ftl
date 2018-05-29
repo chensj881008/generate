@@ -20,7 +20,8 @@ public class ${className} extends BaseDomain implements Serializable {
     <#list props as prop >
     /**
      * 字段名：${prop.actualColumnName}
-     *
+     * 备注: ${(prop.remarks)!'无'}
+     * 默认值：${(prop.defaultValue)!'无'}
      */
     private ${prop.typeName} ${prop.domainColumnName};
     </#list>
@@ -33,6 +34,7 @@ public class ${className} extends BaseDomain implements Serializable {
    /**
    * 字段名：${prop.actualColumnName}
    * get方法
+   * 备注: ${(prop.remarks)!'无'}
    */
    public ${prop.typeName} get${prop.domainColumnName?cap_first}(){
 
@@ -42,6 +44,7 @@ public class ${className} extends BaseDomain implements Serializable {
    /**
    * 字段名：${prop.actualColumnName}
    * set方法
+   * 备注: ${(prop.remarks)!'无'}
    */
    public ${prop.typeName} set${prop.domainColumnName?cap_first}(${prop.typeName} ${prop.domainColumnName}){
         this.${prop.domainColumnName} = ${prop.domainColumnName};

@@ -53,9 +53,9 @@ public class MainTest {
             Map<String, Object> clientData = generator.generateJavaClientData();
             Map<String, Object> sqlMapData = generator.generateSqlMapData();
             generateDomainFile(domainData, info);
-            generateClientFile(clientData,info);
-            generateSqlMapFile(sqlMapData,info);
-            generateMyBatisConfigFile();
+//            generateClientFile(clientData,info);
+//            generateSqlMapFile(sqlMapData,info);
+//            generateMyBatisConfigFile();
         } catch (SQLException e) {
             e.printStackTrace();
         }

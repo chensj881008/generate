@@ -39,7 +39,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         importData.add("import "+ t.getDomainPackage() +".BaseDomain;\n");
         dataMap.put("importData",importData);
         dataMap.put("author",PropertiesLoader.getProperty("config.author"));
-        dataMap.put("title",t.getTableName());
+        dataMap.put("title",t.getRemark());
         dataMap.put("email", PropertiesLoader.getProperty("config.email"));
         dataMap.put("date",DateUtils.getCurrentDate());
         dataMap.put("alias",t.getAlias());
