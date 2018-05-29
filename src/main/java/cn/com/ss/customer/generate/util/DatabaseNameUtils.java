@@ -1,5 +1,11 @@
 package cn.com.ss.customer.generate.util;
 
+import cn.com.ss.customer.generate.domain.TableInfo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  * @author chenshijie
  * @title 字段名称处理

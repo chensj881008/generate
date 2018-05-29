@@ -146,6 +146,7 @@ public class MainTest {
             }
         }
     }
+
     private static void generateSqlMapFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;

@@ -28,6 +28,7 @@ public class DatabaseUtils {
     public static TableInfo getTableInfo(String tableName, Connection connection) throws SQLException {
         TableInfo info = new TableInfo();
         info.setTableName(tableName);
+        //info.setRemark(DatabaseNameUtils.tableCommentForSqlServer(tableName));
         info.setDomainName(DatabaseNameUtils.convertFromDBToJava(tableName,0));
         info.setAlias(DatabaseNameUtils.convertFromDBToJava(tableName,1));
         info.setDomainPackage(Constant.DOMAIN_PACKAGE);
@@ -76,6 +77,7 @@ public class DatabaseUtils {
             closeResultSet(rs);
         }
       tableInfo.setActualTableName(atn);
+      tableInfo.setRemark(CommentUtils.getComment(tableInfo,null,0));
     }
 
     /**
@@ -104,13 +106,12 @@ public class DatabaseUtils {
             TableColumnInfo columnInfo = new TableColumnInfo();
             columnInfo.setJdbcType(rs.getInt("DATA_TYPE"));
             columnInfo.setJdbcTypeName(JdbcUtils.getTypeName(rs.getInt("DATA_TYPE")));
-
             columnInfo.setLength(rs.getInt("COLUMN_SIZE")); 
             columnInfo.setActualColumnName(rs.getString("COLUMN_NAME")); 
             columnInfo.setDomainColumnName(DatabaseNameUtils.convertFromDBToJava(rs.getString("COLUMN_NAME"),1)); 
             columnInfo.setNullable(rs.getInt("NULLABLE") == DatabaseMetaData.columnNullable); 
             columnInfo.setScale(rs.getInt("DECIMAL_DIGITS")); 
-            columnInfo.setRemarks(rs.getString("REMARKS")); 
+            columnInfo.setRemarks(CommentUtils.getComment(tableInfo,rs.getString("COLUMN_NAME"),1));
             columnInfo.setDefaultValue(rs.getString("COLUMN_DEF")); 
             if (supportsIsAutoIncrement) {
                 columnInfo.setAutoIncrement(

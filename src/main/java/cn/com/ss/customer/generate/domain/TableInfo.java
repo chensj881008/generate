@@ -43,6 +43,7 @@ public class TableInfo {
 
     private String catalog;
     private String schema;
+    private String remark;
 
     public TableInfo() {
         this.tableColumnInfos = new ArrayList<>();
@@ -131,6 +132,14 @@ public class TableInfo {
 
     public void setDomainPath(String domainPath) {
         this.domainPath = domainPath;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     @Override
