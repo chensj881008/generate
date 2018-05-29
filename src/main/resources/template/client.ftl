@@ -13,17 +13,17 @@ ${value}
 */
 public interface ${className} {
 
-    int insert${domainName}(${domainName} ${paramT}) throws DataAccessException;
+    public int insert${domainName}(${domainName} ${paramT}) throws DataAccessException;
 
-    int update${domainName}(${domainName} ${paramT}) throws DataAccessException;
+    public int update${domainName}(${domainName} ${paramT}) throws DataAccessException;
 
-    int delete${domainName}(${domainName} ${paramT}) throws DataAccessException;
+    public int delete${domainName}(${domainName} ${paramT}) throws DataAccessException;
 
-    ${domainName} select${domainName}(${domainName} ${paramT}) throws DataAccessException;
+    public ${domainName} select${domainName}(${domainName} ${paramT}) throws DataAccessException;
 
-    Object select${domainName}Count(${domainName} ${paramT}) throws DataAccessException;
+    public Object select${domainName}Count(${domainName} ${paramT}) throws DataAccessException;
 
-    List<${domainName}> select${domainName}List(${domainName} ${paramT}) throws DataAccessException;
+    public List<${domainName}> select${domainName}List(${domainName} ${paramT}) throws DataAccessException;
 
-    List<${domainName}> select${domainName}PageList(${domainName} ${paramT}) throws DataAccessException;
+    public List<${domainName}> select${domainName}PageList(${domainName} ${paramT}) throws DataAccessException;
 }

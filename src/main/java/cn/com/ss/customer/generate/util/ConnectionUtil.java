@@ -72,6 +72,17 @@ public class ConnectionUtil {
         }
     }
 
+    public static void closeConnection( Connection rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+                rs = null;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private ConnectionUtil() {
     }
 }

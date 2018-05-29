@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN">
+
 <mapper namespace="${daoName}">
+
     <resultMap id="${param}ResultForList" type="${param}">
     <#list cols as col>
          <result column="${col.actualColumnName}" property="${col.domainColumnName}" jdbcType="${col.jdbcTypeName}" />
@@ -53,7 +54,7 @@
         </where>
     </update>
 
-    <delete id="delete${param?cap_first}" parameterType="${param}"
+    <delete id="delete${param?cap_first}" parameterType="${param}">
         delete from  ${tableName}
         <where>
         <#list pkList as pk>

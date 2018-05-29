@@ -39,7 +39,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         importData.add("import "+ t.getDomainPackage() +".BaseDomain;\n");
         dataMap.put("importData",importData);
         dataMap.put("author",PropertiesLoader.getProperty("config.author"));
-        dataMap.put("title",t.getRemark());
+        dataMap.put("title",t.getRemark() == null ? t.getTableName() : t.getRemark());
         dataMap.put("email", PropertiesLoader.getProperty("config.email"));
         dataMap.put("date",DateUtils.getCurrentDate());
         dataMap.put("alias",t.getAlias());
@@ -70,7 +70,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         importData.add("\n");
         dataMap.put("importData",importData);
         dataMap.put("author",PropertiesLoader.getProperty("config.author"));
-        dataMap.put("title",t.getTableName()+"_DAO");
+        dataMap.put("title",t.getRemark() == null ? t.getTableName() : t.getRemark()+"DAO接口");
         dataMap.put("email", PropertiesLoader.getProperty("config.email"));
         dataMap.put("date",DateUtils.getCurrentDate());
         dataMap.put("className",t.getDomainName()+"Dao");
@@ -132,6 +132,47 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("className",t.getDomainName()+"Dao");
         dataMap.put("domainName",t.getDomainName());
 
+        return  dataMap;
+    }
+
+    public Map<String,Object>  generateJavaServiceData(){
+        TableInfo t = this.getTableInfo();
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("packageName", Constant.SERVICE_PACKAGE);
+        List<String> importData = new ArrayList<>();
+        importData.add("import java.util.List;  \n");
+        importData.add("import "+t.getDomainPackage()+"."+t.getDomainName()+";  \n");
+        dataMap.put("importData",importData);
+        dataMap.put("author",PropertiesLoader.getProperty("config.author"));
+        dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"服务接口");
+        dataMap.put("email", PropertiesLoader.getProperty("config.email"));
+        dataMap.put("date",DateUtils.getCurrentDate());
+        dataMap.put("className",t.getDomainName()+"Service");
+        dataMap.put("domainName",t.getDomainName());
+        dataMap.put("paramT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
+        return  dataMap;
+    }
+
+    public Map<String,Object>  generateJavaServiceImplData(){
+        TableInfo t = this.getTableInfo();
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("packageName", Constant.SERVICEIMPL_PACKAGE);
+        List<String> importData = new ArrayList<>();
+        importData.add("import java.util.List;  \n");
+        importData.add("import "+t.getDomainPackage()+"."+t.getDomainName()+";  \n");
+        importData.add("import "+ Constant.SERVICE_PACKAGE+"."+t.getDomainName()+"Dao;  \n");
+        importData.add("import "+ Constant.SERVICE_PACKAGE+"."+t.getDomainName()+"Service;  \n");
+        dataMap.put("importData",importData);
+        dataMap.put("author",PropertiesLoader.getProperty("config.author"));
+        dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"服务接口");
+        dataMap.put("email", PropertiesLoader.getProperty("config.email"));
+        dataMap.put("date",DateUtils.getCurrentDate());
+        dataMap.put("className",t.getDomainName()+"ServiceImpl");
+        dataMap.put("pClassName",t.getDomainName()+"Service");
+        dataMap.put("daoClassName",t.getDomainName()+"Dao");
+        dataMap.put("daoClassNameT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1) +"");
+        dataMap.put("domainName",t.getDomainName());
+        dataMap.put("paramT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
         return  dataMap;
     }
 }
