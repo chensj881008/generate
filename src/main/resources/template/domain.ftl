@@ -12,7 +12,7 @@ ${value}
  * @package ${packageName}
  * @date ${date}
  */
-@Alias('${alias}')
+@Alias("${alias}")
 public class ${className} extends BaseDomain implements Serializable {
 
     private static final long serialVersionUID = -1L;
@@ -39,14 +39,14 @@ public class ${className} extends BaseDomain implements Serializable {
    public ${prop.typeName} get${prop.domainColumnName?cap_first}(){
 
         return ${prop.domainColumnName};
-   };
+   }
 
    /**
    * 字段名：${prop.actualColumnName}
    * set方法
    * 备注: ${(prop.remarks)!'无'}
    */
-   public ${prop.typeName} set${prop.domainColumnName?cap_first}(${prop.typeName} ${prop.domainColumnName}){
+   public void set${prop.domainColumnName?cap_first}(${prop.typeName} ${prop.domainColumnName}){
         this.${prop.domainColumnName} = ${prop.domainColumnName};
    }
    </#list>

@@ -82,7 +82,7 @@ public class JavaFileGenerator extends AbstractGenerator {
     public Map<String,Object>  generateSqlMapData(){
         TableInfo t = this.getTableInfo();
         Map<String,Object> dataMap = new HashMap<>();
-        dataMap.put("daoName", Constant.DAO_PACKAGE+t.getDomainName()+"Dao");
+        dataMap.put("daoName", Constant.DAO_PACKAGE+"."+t.getDomainName()+"Dao");
         dataMap.put("param",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
         dataMap.put("cols", t.getTableColumnInfos());
         dataMap.put("tableName",t.getTableName());
@@ -160,7 +160,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         List<String> importData = new ArrayList<>();
         importData.add("import java.util.List;  \n");
         importData.add("import "+t.getDomainPackage()+"."+t.getDomainName()+";  \n");
-        importData.add("import "+ Constant.SERVICE_PACKAGE+"."+t.getDomainName()+"Dao;  \n");
+        importData.add("import "+ Constant.DAO_PACKAGE+"."+t.getDomainName()+"Dao;  \n");
         importData.add("import "+ Constant.SERVICE_PACKAGE+"."+t.getDomainName()+"Service;  \n");
         dataMap.put("importData",importData);
         dataMap.put("author",PropertiesLoader.getProperty("config.author"));
