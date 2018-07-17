@@ -15,15 +15,15 @@ public class Constant {
 
     public static String PREFIX = PropertiesLoader.getProperty("config.package");
 
-    public static String DOMAIN_PACKAGE = PREFIX + ".domain";
+    public static String DOMAIN_PACKAGE = PREFIX +"."+PropertiesLoader.getProperty("config.domain");
 
-    public static String DAO_PACKAGE = PREFIX + ".dao";
+    public static String DAO_PACKAGE = PREFIX  +"."+PropertiesLoader.getProperty("config.dao");
 
-    public static String DAOIMPL_PACKAGE = PREFIX + ".dao.impl";
+    public static String DAOIMPL_PACKAGE = PREFIX +"."+PropertiesLoader.getProperty("config.dao") + ".impl";
 
     public static String MAPPER_PACKAGE = PropertiesLoader.getProperty("config.mapper");
 
-    public static String SERVICE_PACKAGE = PREFIX + ".service";
+    public static String SERVICE_PACKAGE = PREFIX  +"."+PropertiesLoader.getProperty("config.service");
 
-    public static String SERVICEIMPL_PACKAGE = PREFIX + ".service.impl";
+    public static String SERVICEIMPL_PACKAGE = PREFIX +"."+PropertiesLoader.getProperty("config.serviceImpl");
 }
