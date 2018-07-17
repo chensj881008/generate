@@ -3,7 +3,7 @@ package ${packageName};
 <#list importData as value>
 ${value}
 </#list>
-
+import org.springframework.stereotype.Repository;
 /**
 * @author ${author}
 * @title ${title}
@@ -11,6 +11,7 @@ ${value}
 * @package ${packageName}
 * @date ${date}
 */
+@Repository
 public interface ${className} {
 
     public int insert${domainName}(${domainName} ${paramT}) throws DataAccessException;

@@ -3,10 +3,7 @@ package cn.com.ss.customer.generate.test;
 import cn.com.ss.customer.generate.Constant;
 import cn.com.ss.customer.generate.code.java.JavaFileGenerator;
 import cn.com.ss.customer.generate.domain.TableInfo;
-import cn.com.ss.customer.generate.util.ConnectionUtil;
-import cn.com.ss.customer.generate.util.DatabaseUtils;
-import cn.com.ss.customer.generate.util.FileUtils;
-import cn.com.ss.customer.generate.util.PropertiesLoader;
+import cn.com.ss.customer.generate.util.*;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -17,7 +14,9 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -59,7 +58,13 @@ public class MainTest {
 //            generateSqlMapFile(sqlMapData,info);
 //            generateMyBatisConfigFile();
            // generateServiceFile(serviceData,info);
-            generateServiceImplFile(serviceImplData,info);
+            //generateServiceImplFile(serviceImplData,info);
+
+            List<String> tableList = new ArrayList<>();
+            tableList.add("ET_USER_INFO");
+            tableList.add("SYS_REPORT_INFO");
+            GenerateFileUtils.generateFacdeFile(tableList);
+            GenerateFileUtils.generateFacdeImplFile(tableList);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -37,6 +37,8 @@ public class Runner {
                 for (String s : tableList) {
                     GenerateFileUtils.generateFile(s,connection);
                 }
+                GenerateFileUtils.generateFacdeFile(tableList);
+                GenerateFileUtils.generateFacdeImplFile(tableList);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -170,7 +170,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("className",t.getDomainName()+"ServiceImpl");
         dataMap.put("pClassName",t.getDomainName()+"Service");
         dataMap.put("daoClassName",t.getDomainName()+"Dao");
-        dataMap.put("daoClassNameT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1) +"");
+        dataMap.put("daoClassNameT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1) +"Dao");
         dataMap.put("domainName",t.getDomainName());
         dataMap.put("paramT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
         return  dataMap;

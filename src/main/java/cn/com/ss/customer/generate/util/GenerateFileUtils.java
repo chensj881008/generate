@@ -14,6 +14,7 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,12 +47,19 @@ public class GenerateFileUtils {
 
     }
 
+    /**
+     * 生成一次性文件
+     * mybatis-config、BaseDomain和Row文件
+     */
     private static void generateOnceFile(){
         generateMyBatisConfigFile();
         generateBaseDomainFile();
         generateRowFile();
     }
 
+    /**
+     * 生成BaseDomain文件
+     */
     private static void generateBaseDomainFile() {
         Map<String, Object> data = new HashMap<>();
         data.put("domainPackage", Constant.DOMAIN_PACKAGE);
@@ -82,6 +90,9 @@ public class GenerateFileUtils {
         }
     }
 
+    /**
+     * Row文件
+     */
     private static void generateRowFile() {
         Map<String, Object> data = new HashMap<>();
         data.put("domainPackage", Constant.DOMAIN_PACKAGE+".support");
@@ -112,6 +123,9 @@ public class GenerateFileUtils {
         }
     }
 
+    /**
+     * MyBatis-config文件
+     */
     private static void generateMyBatisConfigFile() {
         Map<String, Object> data = new HashMap<>();
         data.put("domainPackage", Constant.DOMAIN_PACKAGE);
@@ -157,6 +171,7 @@ public class GenerateFileUtils {
         generateServiceImplFile(serviceImplData,info);
 
     }
+
     private static void generateDomainFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -212,8 +227,6 @@ public class GenerateFileUtils {
             }
         }
     }
-
-
 
     private static void generateSqlMapFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
@@ -299,4 +312,113 @@ public class GenerateFileUtils {
         }
 
     }
+
+    /**
+     * 生成Facade接口
+     * @param tableList
+     */
+    public static void generateFacdeFile(List<String> tableList) {
+        Map<String, Object> data = generateFacdeFileData(tableList);
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("facade.ftl");
+            String path = PropertiesLoader.getProperty("config.path");
+            String pack = Constant.SERVICE_PACKAGE;
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + "Facade.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * 生成Facade接口
+     * @param tableList
+     */
+    public static void generateFacdeImplFile(List<String> tableList) {
+        Map<String, Object> data = generateFacdeFileImplData(tableList);
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("facadeImpl.ftl");
+            String path = PropertiesLoader.getProperty("config.path");
+            String pack = Constant.SERVICEIMPL_PACKAGE;
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + "FacadeImpl.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private static Map<String,Object> generateFacdeFileImplData(List<String> tableList) {
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("packageName",Constant.SERVICEIMPL_PACKAGE+";");
+        dataMap.put("pPackage",Constant.SERVICE_PACKAGE);
+        dataMap.put("author",PropertiesLoader.getProperty("config.author"));
+        dataMap.put("title","FacadeImpl");
+        dataMap.put("email", PropertiesLoader.getProperty("config.email"));
+        dataMap.put("date",DateUtils.getCurrentDate());
+        dataMap.put("className","FacadeImpl");
+        dataMap.put("pname","Facade");
+        List<String> tableNameList = new ArrayList<>();
+        for (String s : tableList) {
+            tableNameList.add(DatabaseNameUtils.convertFromDBToJava(s,0)+"");
+        }
+        dataMap.put("tableNameList",tableNameList);
+        return dataMap;
+    }
+
+
+    /**
+     * 生成facade接口数据
+     * @param tableList
+     * @return
+     */
+    private static Map<String,Object> generateFacdeFileData(List<String> tableList) {
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("packageName",Constant.SERVICE_PACKAGE+";");
+        dataMap.put("author",PropertiesLoader.getProperty("config.author"));
+        dataMap.put("title","Facade");
+        dataMap.put("email", PropertiesLoader.getProperty("config.email"));
+        dataMap.put("date",DateUtils.getCurrentDate());
+        dataMap.put("className","Facade");
+        List<String> tableNameList = new ArrayList<>();
+        for (String s : tableList) {
+            tableNameList.add(DatabaseNameUtils.convertFromDBToJava(s,0)+"");
+        }
+        dataMap.put("tableNameList",tableNameList);
+        return dataMap;
+    }
+
+
+
 }
