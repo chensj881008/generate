@@ -3,13 +3,13 @@
 
 <mapper namespace="${daoName}">
 
-    <resultMap id="${param}ResultForList" type="${param}">
+    <resultMap id="${param}ResultForList" type="${paramType}">
     <#list cols as col>
          <result column="${col.actualColumnName}" property="${col.domainColumnName}" jdbcType="${col.jdbcTypeName}" />
     </#list>
     </resultMap>
 
-    <resultMap id="${param}Result" type="${param}" extends="${param}ResultForList">
+    <resultMap id="${param}Result" type="${paramType}" extends="${param}ResultForList">
 
     </resultMap>
 
@@ -19,7 +19,7 @@
     </#list>
     </sql>
 
-    <insert id="insert${param?cap_first}" parameterType="${param}">
+    <insert id="insert${param?cap_first}" parameterType="${paramType}">
         <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(NEWID() AS VARCHAR(36)) AS ID</selectKey>
         INSERT INTO ${tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -35,7 +35,7 @@
         </trim>
     </insert>
 
-    <update id="update${param?cap_first}" parameterType="${param}">
+    <update id="update${param?cap_first}" parameterType="${paramType}">
         UPDATE ${tableName}
         <set>
             <trim suffixOverrides=",">
@@ -55,7 +55,7 @@
         </where>
     </update>
 
-    <delete id="delete${param?cap_first}" parameterType="${param}">
+    <delete id="delete${param?cap_first}" parameterType="${paramType}">
         delete from  ${tableName}
         <where>
         <#list pkList as pk>
@@ -69,14 +69,14 @@
     </delete>
 
 
-    <select id="select${param?cap_first}" resultMap="${param}Result" parameterType="${param}">
+    <select id="select${param?cap_first}" resultMap="${param}Result" parameterType="${paramType}">
         SELECT * FROM ${tableName} t
         <where>
             <include refid="sql-${param}" />
         </where>
     </select>
 
-    <select id="select${param?cap_first}List" resultMap="${param}ResultForList" parameterType="${param}">
+    <select id="select${param?cap_first}List" resultMap="${param}ResultForList" parameterType="${paramType}">
         SELECT
         <if test="row.count != null and row.count != ''"> top ${r"${row.count}"} </if>
         * FROM ${tableName} t
@@ -86,14 +86,14 @@
         ORDER BY ${pks} DESC
     </select>
 
-    <select id="select${param?cap_first}Count" resultType="int" parameterType="${param}">
+    <select id="select${param?cap_first}Count" resultType="int" parameterType="${paramType}">
         select count(1) from  ${tableName} t
         <where>
             <include refid="sql-${param}" />
         </where>
     </select>
 
-    <select id="select${param?cap_first}PageList" resultMap="${param}Result" parameterType="${param}">
+    <select id="select${param?cap_first}PageList" resultMap="${param}Result" parameterType="${paramType}">
         SELECT * FROM (
         SELECT t.* ,
         ROW_NUMBER() OVER ( ORDER BY ${pks} DESC ) AS _RN

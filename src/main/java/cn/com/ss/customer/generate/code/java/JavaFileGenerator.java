@@ -84,9 +84,9 @@ public class JavaFileGenerator extends AbstractGenerator {
         Map<String,Object> dataMap = new HashMap<>();
         dataMap.put("daoName", Constant.DAO_PACKAGE+"."+t.getDomainName()+"Dao");
         // spring mybatis 使用
-        //dataMap.put("param",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
+        dataMap.put("param",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
         //spring-boot 需要
-        dataMap.put("param",Constant.DOMAIN_PACKAGE+"."+DatabaseNameUtils.convertFromDBToJava(t.getTableName(),0));
+        dataMap.put("paramType",Constant.DOMAIN_PACKAGE+"."+DatabaseNameUtils.convertFromDBToJava(t.getTableName(),0));
         dataMap.put("cols", t.getTableColumnInfos());
         dataMap.put("tableName",t.getTableName());
 
