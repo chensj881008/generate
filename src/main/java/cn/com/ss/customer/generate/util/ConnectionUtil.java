@@ -85,4 +85,18 @@ public class ConnectionUtil {
 
     private ConnectionUtil() {
     }
+
+     public static void main(String[] args) throws Exception {
+         Connection conn = null;
+         try {
+             // 加载数据库驱动程序
+             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+             conn = DriverManager.getConnection("jdbc:sqlserver://172.16.0.200\\ssgj;database=CISDB", "sa", "zyc@8468");
+         } catch (Exception e) {
+             e.printStackTrace();
+             throw new Exception(e.getMessage());
+         }
+         System.out.println(conn);
+      }
+
 }

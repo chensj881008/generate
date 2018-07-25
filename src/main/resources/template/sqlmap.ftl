@@ -20,6 +20,7 @@
     </sql>
 
     <insert id="insert${param?cap_first}" parameterType="${param}">
+        <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(NEWID() AS VARCHAR(36)) AS ID</selectKey>
         INSERT INTO ${tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
         <#list cols as col>
