@@ -40,13 +40,13 @@
         <set>
             <trim suffixOverrides=",">
             <#list cols as col>
-                <if test="(${col.domainColumnName} != null and ${col.domainColumnName} != '')"> ${col.actualColumnName} , </if>
+                <if test="(${col.domainColumnName} != null and ${col.domainColumnName} != '')"> ${col.actualColumnName} = ${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"}, </if>
             </#list>
             </trim>
         </set>
         <where>
         <#list pkList as pk>
-            <if test="(${pk.domainColumnName} != null and ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName} ${r'}'}   </if>
+            <if test="(${pk.domainColumnName} != null and ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>
         </#list>
             <if test="${pkListStr} and (map.pks != null and map.pks != '')">
                 and (${pkString}) in
@@ -83,7 +83,7 @@
         <where>
             <include refid="sql-${param}" />
         </where>
-        ORDER BY ${pks} DESC
+        ORDER BY ${pks} ASC
     </select>
 
     <select id="select${param?cap_first}Count" resultType="int" parameterType="${paramType}">
