@@ -22,7 +22,7 @@ public class Runner {
     private static Logger logger = LoggerFactory.getLogger(Runner.class);
 
     public static void main(String[] args){
-        logger.info("开始准备导出数据");
+        logger.info("---开始准备导出数据---");
         Connection connection = null;
         try {
             logger.info("连接数据库");
