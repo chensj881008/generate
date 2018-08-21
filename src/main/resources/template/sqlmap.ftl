@@ -61,7 +61,7 @@
         <#list pkList as pk>
             <if test="(${pk.domainColumnName} != null and ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName} ${r'}'}   </if>
         </#list>
-            <if test="${pkListStr} and (map.pks != null and map.pks != '')">
+            <if test="${pkListStr} and (map.pks != null and map.size > 0)">
                 and (${pkString}) in
                 <foreach item="item" collection="map.pks" open="(" separator="," close=")"> ${r"#{item}"}</foreach>
             </if>
