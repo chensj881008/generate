@@ -1,6 +1,5 @@
-package cn.com.ss.customer.generate.file;
+package cn.com.ss.customer.generate;
 
-import cn.com.ss.customer.generate.test.MainTest;
 import cn.com.ss.customer.generate.util.ConnectionUtil;
 import cn.com.ss.customer.generate.util.GenerateFileUtils;
 import cn.com.ss.customer.generate.util.PropertiesLoader;
