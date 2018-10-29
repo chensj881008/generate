@@ -99,11 +99,11 @@ public class JavaFileGenerator extends AbstractGenerator {
             if(i == pk.size() - 1){
                 pks.append("t."+pk.get(i));
                 pkString.append(pk.get(i));
-                pkListStr.append("("+prop+" !=null or " +prop+ "!='')" );
+                pkListStr.append("("+prop+" !=null )" );
             }else {
                 pks.append("t."+pk.get(i)+",");
                 pkString.append(pk.get(i)+",");
-                pkListStr.append("("+prop+" !=null or " +prop+ "!='') and " );
+                pkListStr.append("("+prop+" !=null ) and " );
             }
 
         }
