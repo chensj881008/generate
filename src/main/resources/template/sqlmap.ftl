@@ -25,7 +25,9 @@
     </sql>
 
     <insert id="insert${param?cap_first}" parameterType="${paramType}">
+        <#if (isAutoPKS == 0)>
         <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(NEWID() AS VARCHAR(36)) AS ID</selectKey>
+        </#if>
         INSERT INTO ${tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
         <#list cols as col>

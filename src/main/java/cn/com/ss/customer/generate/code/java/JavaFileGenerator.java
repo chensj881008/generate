@@ -110,6 +110,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("pks",pks.toString());
         dataMap.put("pkString",pkString.toString());
         dataMap.put("pkListStr",pkListStr.toString());
+        dataMap.put("isAutoPKS",Boolean.valueOf(PropertiesLoader.getProperty("config.isAutoPKs")) == true ? 0 : 1);
         List<TableColumnInfo> columnInfos = t.getTableColumnInfos();
         List<TableColumnInfo> pkList = new ArrayList<>();
         for(int i=0 ; i< pk.size() ; i++){
