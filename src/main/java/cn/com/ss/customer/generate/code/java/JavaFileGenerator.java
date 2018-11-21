@@ -119,6 +119,7 @@ public class JavaFileGenerator extends AbstractGenerator {
 
         }
         dataMap.put("pkList",pkList);
+        dataMap.put("isAutoPKS",Boolean.valueOf(PropertiesLoader.getProperty("config.isAutoPKs")) == true ? 0 : 1);
         List<String> importData = new ArrayList<>();
         importData.add("\n");
         importData.add("import java.util.List;  \n");
@@ -132,6 +133,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("date",DateUtils.getCurrentDate());
         dataMap.put("className",t.getDomainName()+"Dao");
         dataMap.put("domainName",t.getDomainName());
+
 
         return  dataMap;
     }
