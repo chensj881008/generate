@@ -67,7 +67,7 @@
         <where>
         <#list pkList as pk>
             <#--<if test="(${pk.domainColumnName} != null and ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>-->
-            <if test="(${pk.domainColumnName} != null )"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>-->
+            <if test="(${pk.domainColumnName} != null )"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>
         </#list>
             <if test="${pkListStr} and (map.pks != null and map.size > 0)">
                 and (${pkString}) in
