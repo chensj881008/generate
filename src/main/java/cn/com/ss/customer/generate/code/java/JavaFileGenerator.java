@@ -6,10 +6,7 @@ import cn.com.ss.customer.generate.domain.TableColumnInfo;
 import cn.com.ss.customer.generate.domain.TableInfo;
 import cn.com.ss.customer.generate.util.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author chenshijie
@@ -27,10 +24,11 @@ public class JavaFileGenerator extends AbstractGenerator {
         TableInfo t = this.getTableInfo();
         Map<String,Object> dataMap = new HashMap<>();
         dataMap.put("packageName",t.getDomainPackage());
-        List<String> importData = new ArrayList<>();
+        Set<String> importData = new HashSet<>();
         List<TableColumnInfo> props = t.getTableColumnInfos();
         for (TableColumnInfo prop : props) {
-            if (!prop.getFullyQualifiedJavaType().toString().startsWith(FullyQualifiedJavaType.JAVA_LANG)){
+            if (!prop.getFullyQualifiedJavaType().toString().startsWith(FullyQualifiedJavaType.JAVA_LANG)
+                && !prop.getFullyQualifiedJavaType().isArray()){
                 importData.add("import "+ prop.getFullyQualifiedJavaType() +"; ");
             }
         }
@@ -121,6 +119,7 @@ public class JavaFileGenerator extends AbstractGenerator {
 
         }
         dataMap.put("pkList",pkList);
+        dataMap.put("isAutoPKS",Boolean.valueOf(PropertiesLoader.getProperty("config.isAutoPKs")) == true ? 0 : 1);
         List<String> importData = new ArrayList<>();
         importData.add("\n");
         importData.add("import java.util.List;  \n");
@@ -134,6 +133,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("date",DateUtils.getCurrentDate());
         dataMap.put("className",t.getDomainName()+"Dao");
         dataMap.put("domainName",t.getDomainName());
+
 
         return  dataMap;
     }

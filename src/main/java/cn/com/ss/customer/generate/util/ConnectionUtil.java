@@ -1,6 +1,9 @@
 package cn.com.ss.customer.generate.util;
 
+import com.alibaba.druid.pool.DruidDataSource;
+
 import java.sql.*;
+import java.util.Properties;
 
 /**
  * @author chenshijie
@@ -15,21 +18,44 @@ public class ConnectionUtil {
      * @return Connection
      */
     public static synchronized Connection getConnection() throws Exception {
-        // 读出配置信息
-        String driverClassName = PropertiesLoader.getProperty("db.driverClassName");
-        String url = PropertiesLoader.getProperty("db.url");
-        String username = PropertiesLoader.getProperty("db.username");
-        String password = PropertiesLoader.getProperty("db.password");
+        DruidDataSource datasource = new DruidDataSource();
+        datasource.setUrl(PropertiesLoader.getProperty("db.url"));
+        datasource.setUsername(PropertiesLoader.getProperty("db.username"));
+        datasource.setPassword(PropertiesLoader.getProperty("db.password"));
+        datasource.setDriverClassName(PropertiesLoader.getProperty("db.driverClassName"));
+        datasource.setInitialSize(5);
+        datasource.setMinIdle(5);
+        datasource.setMaxActive(20);
+        datasource.setMaxWait(60000);
+        datasource.setTimeBetweenEvictionRunsMillis(60000);
+        datasource.setMinEvictableIdleTimeMillis(300000);
+        datasource.setValidationQuery("SELECT GETDATE()");
+        datasource.setTestWhileIdle(true);
+        datasource.setTestOnBorrow(false);
+        datasource.setTestOnReturn(false);
+        datasource.setMaxPoolPreparedStatementPerConnectionSize(20);
+        Properties prop = new Properties();
+        prop.setProperty("druid.stat.mergeSql","true");
+        prop.setProperty("druid.stat.slowSqlMillis","5000");
+        datasource.setConnectProperties(prop);
+        datasource.setUseGlobalDataSourceStat(true);
 
-        Connection conn = null;
-        try {
-            // 加载数据库驱动程序
-            Class.forName(driverClassName);
-            conn = DriverManager.getConnection(url, username, password);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception(e.getMessage());
-        }
+//        // 读出配置信息
+//        String driverClassName = PropertiesLoader.getProperty("db.driverClassName");
+//        String url = PropertiesLoader.getProperty("db.url");
+//        String username = PropertiesLoader.getProperty("db.username");
+//        String password = PropertiesLoader.getProperty("db.password");
+//
+//        Connection conn = null;
+//        try {
+//            // 加载数据库驱动程序
+//            Class.forName(driverClassName);
+//            conn = DriverManager.getConnection(url, username, password);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            throw new Exception(e.getMessage());
+//        }
+        Connection conn = datasource.getConnection();
 
         return conn;
     }
