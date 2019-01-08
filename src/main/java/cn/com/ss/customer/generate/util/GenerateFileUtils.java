@@ -66,7 +66,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("baseDomain.ftl");
             String path = Constant.PATH;
@@ -99,7 +99,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("row.ftl");
             String path = Constant.PATH;
@@ -132,7 +132,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("mybatis.ftl");
             String path = Constant.PATH;
@@ -176,7 +176,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("domain.ftl");
             String path = info.getDomainPath();
@@ -204,7 +204,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("client.ftl");
             String path = info.getDomainPath();
@@ -232,7 +232,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("sqlmap.ftl");
             String path = info.getDomainPath();
@@ -260,7 +260,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("services.ftl");
             String path = info.getDomainPath();
@@ -288,7 +288,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("servicesImpl.ftl");
             String path = info.getDomainPath();
@@ -322,7 +322,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("facade.ftl");
             String path = PropertiesLoader.getProperty("config.path");
@@ -355,7 +355,7 @@ public class GenerateFileUtils {
         Configuration config = new Configuration();
         Writer writer = null;
         try {
-            File templateFile = new File(MainTest.class.getClassLoader().getResource("template").getPath());
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("facadeImpl.ftl");
             String path = PropertiesLoader.getProperty("config.path");
