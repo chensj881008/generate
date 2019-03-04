@@ -15,12 +15,12 @@
 
     <sql id="sql-${param}">
     <#list cols as col>
-    <#--<#if col.jdbcTypeName ='TIMESTAMP' || col.jdbcTypeName ='DATE'>
-        <if test="(${col.domainColumnName} != null )"> and t.${col.actualColumnName} = ${"#{" + col.domainColumnName +"}"} </if>
-    <#else>
+    <#if col.typeName ='String'>
         <if test="(${col.domainColumnName} != null and ${col.domainColumnName} != '')"> and t.${col.actualColumnName} = ${"#{" + col.domainColumnName +"}"} </if>
-    </#if>-->
+    <#else>
         <if test="(${col.domainColumnName} != null )"> and t.${col.actualColumnName} = ${"#{" + col.domainColumnName +"}"} </if>
+    </#if>
+        <#--<if test="(${col.domainColumnName} != null )"> and t.${col.actualColumnName} = ${"#{" + col.domainColumnName +"}"} </if>-->
     </#list>
     </sql>
 
@@ -31,23 +31,23 @@
         INSERT INTO ${tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
         <#list cols as col>
-       <#-- <#if col.jdbcTypeName ='TIMESTAMP' || col.jdbcTypeName ='DATE'>
-            <if test="(${col.domainColumnName} != null )"> ${col.actualColumnName} , </if>
-        <#else>
+        <#if col.typeName ='String'>
             <if test="(${col.domainColumnName} != null and ${col.domainColumnName} != '')"> ${col.actualColumnName} , </if>
-         </#if>-->
+        <#else>
             <if test="(${col.domainColumnName} != null )"> ${col.actualColumnName} , </if>
+         </#if>
+            <#--<if test="(${col.domainColumnName} != null )"> ${col.actualColumnName} , </if>-->
         </#list>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
         <#list cols as col>
-      <#--  <#if col.jdbcTypeName ='TIMESTAMP' || col.jdbcTypeName ='DATE'>
-            <if test="(${col.domainColumnName} != null )">${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"},  </if>
+        <#if col.typeName ='String'>
+            <if test="(${col.domainColumnName} != null and ${col.domainColumnName} != '')">${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"},  </if>
         <#else>
-            <if test="(${col.domainColumnName} != null and ${col.domainColumnName} != '')"> ${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"},  </if>
-        </#if>-->
-            <if test="(${col.domainColumnName} != null )">${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"},  </if>
+            <if test="(${col.domainColumnName} != null )"> ${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"},  </if>
+        </#if>
+            <#--<if test="(${col.domainColumnName} != null )">${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"},  </if>-->
         </#list>
         </trim>
     </insert>
@@ -57,12 +57,12 @@
         <set>
             <trim suffixOverrides=",">
             <#list cols as col>
-           <#--  <#if col.jdbcTypeName ='TIMESTAMP' || col.jdbcTypeName ='DATE'>
-                <if test="(${col.domainColumnName} != null )"> ${col.actualColumnName} = ${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"}, </if>
-             <#else>
+             <#if col.typeName ='String'>
                 <if test="(${col.domainColumnName} != null and ${col.domainColumnName} != '')"> ${col.actualColumnName} = ${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"}, </if>
-             </#if>-->
+             <#else>
                 <if test="(${col.domainColumnName} != null )"> ${col.actualColumnName} = ${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"}, </if>
+             </#if>
+                <#--<if test="(${col.domainColumnName} != null )"> ${col.actualColumnName} = ${r"#{"}${col.domainColumnName} , jdbcType= ${col.jdbcTypeName } ${r"}"}, </if>-->
             </#list>
             </trim>
         </set>
