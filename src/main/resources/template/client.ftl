@@ -47,7 +47,7 @@ public interface ${className} {
      * @return Object
      * @throws DataAccessException
      */
-    public Object select${domainName}Count(${domainName} ${paramT}) throws DataAccessException;
+    public int select${domainName}Count(${domainName} ${paramT}) throws DataAccessException;
     /**
      * ${domainName} 查询List
      * @param ${paramT}
