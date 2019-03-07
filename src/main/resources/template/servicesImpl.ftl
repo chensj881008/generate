@@ -37,7 +37,7 @@ public class ${className} implements  ${pClassName} {
     }
     @Override
     public int get${domainName}Count(${domainName} ${paramT}){
-        return (Integer)this.${daoClassNameT}.select${domainName}Count(${paramT});
+        return this.${daoClassNameT}.select${domainName}Count(${paramT});
     }
     @Override
     public List<${domainName}> get${domainName}List(${domainName} ${paramT}){
