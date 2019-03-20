@@ -15,6 +15,8 @@ public class Constant {
 
     public static String PREFIX = PropertiesLoader.getProperty("config.package");
 
+    public static String CONFIG_PACKAGE = PropertiesLoader.getProperty("config.package")+".config";
+
     public static String DOMAIN_PACKAGE = PREFIX +"."+PropertiesLoader.getProperty("config.domain");
 
     public static String DAO_PACKAGE = PREFIX  +"."+PropertiesLoader.getProperty("config.dao");

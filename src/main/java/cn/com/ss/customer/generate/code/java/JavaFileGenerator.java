@@ -19,7 +19,10 @@ public class JavaFileGenerator extends AbstractGenerator {
 
     public JavaFileGenerator() {
     }
-
+    /**
+     * 生成实体类文件数据
+     * @return map
+     */
     public Map<String,Object>  generateDomainData(){
         TableInfo t = this.getTableInfo();
         Map<String,Object> dataMap = new HashMap<>();
@@ -55,7 +58,10 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("methodData",methodData);
         return  dataMap;
     }
-
+    /**
+     * 生成MyBatis DAO接口文件数据
+     * @return map
+     */
     public Map<String,Object>  generateJavaClientData(){
         TableInfo t = this.getTableInfo();
         Map<String,Object> dataMap = new HashMap<>();
@@ -77,6 +83,10 @@ public class JavaFileGenerator extends AbstractGenerator {
         return  dataMap;
     }
 
+    /**
+     * 生成MyBatis SqlMap文件数据
+     * @return map
+     */
     public Map<String,Object>  generateSqlMapData(){
         TableInfo t = this.getTableInfo();
         Map<String,Object> dataMap = new HashMap<>();
@@ -138,6 +148,10 @@ public class JavaFileGenerator extends AbstractGenerator {
         return  dataMap;
     }
 
+    /**
+     * 生成Service层文件数据
+     * @return map
+     */
     public Map<String,Object>  generateJavaServiceData(){
         TableInfo t = this.getTableInfo();
         Map<String,Object> dataMap = new HashMap<>();
@@ -155,7 +169,10 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("paramT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
         return  dataMap;
     }
-
+    /**
+     * 生成Service 实现层文件数据
+     * @return map
+     */
     public Map<String,Object>  generateJavaServiceImplData(){
         TableInfo t = this.getTableInfo();
         Map<String,Object> dataMap = new HashMap<>();

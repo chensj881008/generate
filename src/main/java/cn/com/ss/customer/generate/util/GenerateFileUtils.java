@@ -55,8 +55,43 @@ public class GenerateFileUtils {
         generateMyBatisConfigFile();
         generateBaseDomainFile();
         generateRowFile();
+        // 判断是否使用Lombok
+        if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
+            generateRedisConfiFile();
+        }
     }
-
+    /**
+     * 生成Redis配置文件
+     */
+    private static void generateRedisConfiFile() {
+        Map<String, Object> data = new HashMap<>();
+        data.put("packageName", Constant.CONFIG_PACKAGE);
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("redisConfig.ftl");
+            String path = Constant.PATH;
+            String pack = Constant.CONFIG_PACKAGE;
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + "RedisConfig.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
     /**
      * 生成BaseDomain文件
      */
@@ -89,7 +124,6 @@ public class GenerateFileUtils {
             }
         }
     }
-
     /**
      * Row文件
      */
@@ -122,7 +156,6 @@ public class GenerateFileUtils {
             }
         }
     }
-
     /**
      * MyBatis-config文件
      */
@@ -156,6 +189,10 @@ public class GenerateFileUtils {
         }
     }
 
+    /**
+     * 文件生成
+     * @param info
+     */
     private static void generateFile(TableInfo info ){
         JavaFileGenerator generator = new JavaFileGenerator();
         generator.setTableInfo(info);
@@ -164,7 +201,17 @@ public class GenerateFileUtils {
         Map<String, Object> sqlMapData = generator.generateSqlMapData();
         Map<String, Object> serviceData = generator.generateJavaServiceData();
         Map<String, Object>  serviceImplData = generator.generateJavaServiceImplData();
-        generateDomainFile(domainData, info);
+        // 判断是否使用Lombok
+        if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseLombok"))){
+            generateDomainFileForLombok(domainData, info);
+        }else{
+            generateDomainFile(domainData, info);
+        }
+        if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
+            generateClientFileForRedis(domainData, info);
+        }else{
+            generateClientFile(domainData, info);
+        }
         generateClientFile(clientData, info);
         generateSqlMapFile(sqlMapData, info);
         generateServiceFile(serviceData, info);
@@ -172,6 +219,42 @@ public class GenerateFileUtils {
 
     }
 
+    /**
+     * 生成实体类文件 lombok
+     * @param data
+     * @param info
+     */
+    private static void generateDomainFileForLombok(Map<String, Object> data, TableInfo info) {
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("domain-lombok.ftl");
+            String path = info.getDomainPath();
+            String pack = info.getDomainPackage();
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + info.getDomainName() + ".java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * 生成实体类文件 Lombok
+     */
     private static void generateDomainFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -199,7 +282,11 @@ public class GenerateFileUtils {
             }
         }
     }
-
+    /**
+     * 生成MyBatis Dao文件
+     * @param data
+     * @param info
+     */
     private static void generateClientFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -227,7 +314,44 @@ public class GenerateFileUtils {
             }
         }
     }
+    /**
+     * 生成MyBatis Dao文件 Redis
+     * @param data
+     * @param info
+     */
+    private static void generateClientFileForRedis(Map<String, Object> data, TableInfo info) {
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("client-redis.ftl");
+            String path = info.getDomainPath();
+            String pack = Constant.DAO_PACKAGE;
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + info.getDomainName() + "Dao.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
+    /**
+     * 生成MyBatis SqlMap文件
+     * @param data
+     * @param info
+     */
     private static void generateSqlMapFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -256,6 +380,11 @@ public class GenerateFileUtils {
         }
     }
 
+    /**
+     * 生成Service层文件
+     * @param data
+     * @param info
+     */
     private static void generateServiceFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -284,6 +413,11 @@ public class GenerateFileUtils {
         }
     }
 
+    /**
+     * 生成Service 实现层文件
+     * @param data
+     * @param info
+     */
     private static void generateServiceImplFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -379,6 +513,11 @@ public class GenerateFileUtils {
         }
     }
 
+    /**
+     * 生成facade实现接口数据
+     * @param tableList
+     * @return
+     */
     private static Map<String,Object> generateFacdeFileImplData(List<String> tableList) {
         Map<String,Object> dataMap = new HashMap<>();
         dataMap.put("packageName",Constant.SERVICEIMPL_PACKAGE+";");
