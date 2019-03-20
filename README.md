@@ -4,6 +4,8 @@
 
 ### master 分支为常规模式生成SSM需要的domain、dao、service和sqlmap文件
 
+可以通过如下配置的选项来实现Lombok分支和redis分支的功能
+
 #### 配置说明
 * `config.isAutoPKs`  设置为true的话，表的主键使用UUID生成
 * `config.isUseLombok`  设置为true的话，实体类生成的时候使用Lombok，项目中需要添加如下的依赖
