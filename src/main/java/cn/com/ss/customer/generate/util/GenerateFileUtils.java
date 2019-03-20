@@ -208,11 +208,10 @@ public class GenerateFileUtils {
             generateDomainFile(domainData, info);
         }
         if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
-            generateClientFileForRedis(domainData, info);
+            generateClientFileForRedis(clientData, info);
         }else{
-            generateClientFile(domainData, info);
+            generateClientFile(clientData, info);
         }
-        generateClientFile(clientData, info);
         generateSqlMapFile(sqlMapData, info);
         generateServiceFile(serviceData, info);
         generateServiceImplFile(serviceImplData,info);

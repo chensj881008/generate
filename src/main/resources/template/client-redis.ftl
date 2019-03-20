@@ -15,7 +15,7 @@ import org.springframework.cache.annotation.Cacheable;
 * @date ${date}
 */
 @Repository
-@CacheConfig(cacheNames = "${className}")
+@CacheConfig(cacheNames = "${domainName}")
 public interface ${className} {
     /**
      * ${domainName} 数据新增
