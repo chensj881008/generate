@@ -55,11 +55,54 @@ public class GenerateFileUtils {
         generateMyBatisConfigFile();
         generateBaseDomainFile();
         generateRowFile();
+        generateBaseControllerFile();
         // 判断是否使用Redis
         if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
             generateRedisConfiFile();
         }
     }
+
+    /**
+     * 生成BaseController
+     */
+    private static void generateBaseControllerFile() {
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("packageName",Constant.CONTROLLER_PACKAGE+".base;");
+        dataMap.put("modelPackage",Constant.DOMAIN_PACKAGE+".*;");
+        dataMap.put("facadeName",Constant.SERVICE_PACKAGE+".Facade;");
+        dataMap.put("facade","Facade");
+        dataMap.put("author",PropertiesLoader.getProperty("config.author"));
+        dataMap.put("title","BaseController");
+        dataMap.put("email", PropertiesLoader.getProperty("config.email"));
+        dataMap.put("date",DateUtils.getCurrentDate());
+        dataMap.put("className","BaseController");
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("baseController.ftl");
+            String path = Constant.PATH;
+            String pack = Constant.CONTROLLER_PACKAGE+".base";
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + "BaseController.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(dataMap, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     /**
      * 生成Redis配置文件
      */
@@ -201,6 +244,7 @@ public class GenerateFileUtils {
         Map<String, Object> sqlMapData = generator.generateSqlMapData();
         Map<String, Object> serviceData = generator.generateJavaServiceData();
         Map<String, Object>  serviceImplData = generator.generateJavaServiceImplData();
+        Map<String, Object>  controllerData = generator.generateJavaControllerData();
         // 判断是否使用Lombok
         if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseLombok"))){
             generateDomainFileForLombok(domainData, info);
@@ -215,6 +259,7 @@ public class GenerateFileUtils {
         generateSqlMapFile(sqlMapData, info);
         generateServiceFile(serviceData, info);
         generateServiceImplFile(serviceImplData,info);
+        generateControllerFile(controllerData,info);
 
     }
 
@@ -413,6 +458,40 @@ public class GenerateFileUtils {
     }
 
     /**
+     * 生成Controller文件
+     * @param data
+     * @param info
+     */
+    private static void generateControllerFile(Map<String, Object> data, TableInfo info) {
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("controller.ftl");
+            String path = info.getDomainPath();
+            String pack = Constant.CONTROLLER_PACKAGE;
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + info.getDomainName() + "Controller.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    /**
      * 生成Service 实现层文件
      * @param data
      * @param info
@@ -556,7 +635,5 @@ public class GenerateFileUtils {
         dataMap.put("tableNameList",tableNameList);
         return dataMap;
     }
-
-
 
 }

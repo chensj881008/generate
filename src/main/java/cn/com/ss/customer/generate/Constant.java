@@ -28,4 +28,6 @@ public class Constant {
     public static String SERVICE_PACKAGE = PREFIX  +"."+PropertiesLoader.getProperty("config.service");
 
     public static String SERVICEIMPL_PACKAGE = PREFIX +"."+PropertiesLoader.getProperty("config.serviceImpl");
+
+    public static String CONTROLLER_PACKAGE = PREFIX +"."+PropertiesLoader.getProperty("config.controller");
 }

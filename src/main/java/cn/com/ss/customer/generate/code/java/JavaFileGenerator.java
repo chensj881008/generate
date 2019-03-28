@@ -195,4 +195,19 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("paramT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
         return  dataMap;
     }
+
+    public Map<String, Object> generateJavaControllerData() {
+        TableInfo t = this.getTableInfo();
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("packageName", Constant.CONTROLLER_PACKAGE);
+        dataMap.put("modelPackage",Constant.DOMAIN_PACKAGE+".*;");
+        dataMap.put("rowPackage",Constant.DOMAIN_PACKAGE+".support.Row;");
+        dataMap.put("basePackage",Constant.CONTROLLER_PACKAGE+".base.BaseController;");
+        dataMap.put("author",PropertiesLoader.getProperty("config.author"));
+        dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"服务接口");
+        dataMap.put("email", PropertiesLoader.getProperty("config.email"));
+        dataMap.put("date",DateUtils.getCurrentDate());
+        dataMap.put("domainName",t.getDomainName());
+        return  dataMap;
+    }
 }
