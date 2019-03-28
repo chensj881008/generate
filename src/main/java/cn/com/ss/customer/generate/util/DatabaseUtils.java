@@ -28,7 +28,6 @@ public class DatabaseUtils {
     public static TableInfo getTableInfo(String tableName, Connection connection) throws SQLException {
         TableInfo info = new TableInfo();
         info.setTableName(tableName);
-        //info.setRemark(DatabaseNameUtils.tableCommentForSqlServer(tableName));
         info.setDomainName(DatabaseNameUtils.convertFromDBToJava(tableName,0));
         info.setAlias(DatabaseNameUtils.convertFromDBToJava(tableName,1));
         info.setDomainPackage(Constant.DOMAIN_PACKAGE);

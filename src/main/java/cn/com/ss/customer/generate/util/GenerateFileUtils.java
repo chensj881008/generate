@@ -55,7 +55,7 @@ public class GenerateFileUtils {
         generateMyBatisConfigFile();
         generateBaseDomainFile();
         generateRowFile();
-        // 判断是否使用Lombok
+        // 判断是否使用Redis
         if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
             generateRedisConfiFile();
         }

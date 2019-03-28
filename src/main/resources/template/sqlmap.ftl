@@ -68,8 +68,13 @@
         </set>
         <where>
         <#list pkList as pk>
-            <#--<if test="(${pk.domainColumnName} != null and ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>-->
+            <#if pk.typeName ='String'>
+            <if test="(${pk.domainColumnName} != null and  ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>
+            <#else>
             <if test="(${pk.domainColumnName} != null )"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>
+            </#if>
+            <#--<if test="(${pk.domainColumnName} != null and ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>-->
+
         </#list>
             <if test="${pkListStr} and (map.pks != null and map.size > 0)">
                 and (${pkString}) in
@@ -82,8 +87,11 @@
         delete from  ${tableName}
         <where>
         <#list pkList as pk>
-            <#--<if test="(${pk.domainColumnName} != null and ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName} ${r'}'}   </if>-->
-        <if test="(${pk.domainColumnName} != null )"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName} ${r'}'}   </if>
+            <#if pk.typeName ='String'>
+            <if test="(${pk.domainColumnName} != null and  ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>
+            <#else>
+            <if test="(${pk.domainColumnName} != null )"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>
+            </#if>
         </#list>
             <if test="${pkListStr} and (map.pks != null and map.size > 0)">
                 and (${pkString}) in
