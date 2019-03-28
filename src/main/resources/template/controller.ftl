@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
 * @author ${author}
 * @title ${title}
@@ -73,7 +76,7 @@ public class ${domainName}Controller  extends BaseController{
      * @return map
      */
     @PostMapping(value="delete")
-    public Map<String, Object> update(${domainName} ${domainName?uncap_first}){
+    public Map<String, Object> delete(${domainName} ${domainName?uncap_first}){
         Map<String, Object> resultMap = new HashMap<String, Object>(6);
         resultMap.put("data", getFacade().get${domainName}Service().remove${domainName}(${domainName?uncap_first}));
         return resultMap;

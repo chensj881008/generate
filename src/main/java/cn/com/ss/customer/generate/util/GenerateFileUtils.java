@@ -83,7 +83,7 @@ public class GenerateFileUtils {
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("baseController.ftl");
             String path = Constant.PATH;
-            String pack = Constant.CONTROLLER_PACKAGE+".base";
+            String pack = Constant.CONTROLLER_PACKAGE;
             String targePath = FileUtils.createABSPath(path, pack);
             File file = new File(targePath + File.separator + "BaseController.java");
             writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
