@@ -20,6 +20,7 @@ public class ${className} implements ${pname}{
 </#list>
 
 <#list tableNameList as value>
+    @Override
     public ${value}Service get${value}Service(){
         return ${value?uncap_first}Service;
     }
