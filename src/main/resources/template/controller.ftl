@@ -32,7 +32,7 @@ public class ${domainName}Controller  extends BaseController{
     @GetMapping(value = "list")
     public Map<String, Object> list(${domainName} ${domainName?uncap_first}, Row row) {
         ${domainName?uncap_first}.setRow(row);
-        Map<String, Object> resultMap = new HashMap<String, Object>(6);
+        Map<String, Object> resultMap = new HashMap<>(6);
         resultMap.put("total", getFacade().get${domainName}Service().get${domainName}Count(${domainName?uncap_first}));
         resultMap.put("rows", getFacade().get${domainName}Service().get${domainName}PageList(${domainName?uncap_first}));
         return resultMap;
@@ -44,7 +44,7 @@ public class ${domainName}Controller  extends BaseController{
      */
     @PostMapping(value="add")
     public Map<String, Object> add(${domainName} ${domainName?uncap_first}){
-        Map<String, Object> resultMap = new HashMap<String, Object>(6);
+        Map<String, Object> resultMap = new HashMap<>(6);
         resultMap.put("data", getFacade().get${domainName}Service().create${domainName}(${domainName?uncap_first}));
         return resultMap;
     }
@@ -55,7 +55,7 @@ public class ${domainName}Controller  extends BaseController{
      */
     @PostMapping(value="update")
     public Map<String, Object> update(${domainName} ${domainName?uncap_first}){
-        Map<String, Object> resultMap = new HashMap<String, Object>(6);
+        Map<String, Object> resultMap = new HashMap<>(6);
         resultMap.put("data", getFacade().get${domainName}Service().modify${domainName}(${domainName?uncap_first}));
         return resultMap;
     }
@@ -66,7 +66,7 @@ public class ${domainName}Controller  extends BaseController{
      */
     @PostMapping(value="get")
     public Map<String, Object> get(${domainName} ${domainName?uncap_first}){
-        Map<String, Object> resultMap = new HashMap<String, Object>(6);
+        Map<String, Object> resultMap = new HashMap<>(6);
         resultMap.put("data", getFacade().get${domainName}Service().get${domainName}(${domainName?uncap_first}));
         return resultMap;
     }
@@ -77,7 +77,7 @@ public class ${domainName}Controller  extends BaseController{
      */
     @PostMapping(value="delete")
     public Map<String, Object> delete(${domainName} ${domainName?uncap_first}){
-        Map<String, Object> resultMap = new HashMap<String, Object>(6);
+        Map<String, Object> resultMap = new HashMap<>(6);
         resultMap.put("data", getFacade().get${domainName}Service().remove${domainName}(${domainName?uncap_first}));
         return resultMap;
     }
