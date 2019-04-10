@@ -25,7 +25,7 @@
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
         <!-- <param name="Target" value="System.out"/> -->
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %msg%n"/>
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %m%n"/>
         </layout>
         <!--  <filter class="org.apache.log4j.varia.LevelRangeFilter">
             <param name="LevelMin" value="DEBUG"/>
@@ -43,7 +43,7 @@
             <param name="FileNamePattern" value="./log/log_%d{yyyy-MM-dd}.log" />
         </rollingPolicy>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %msg%n"/>
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
             <param name="LevelMin" value="DEBUG"/>
@@ -62,7 +62,7 @@
             <param name="FileNamePattern" value="./log/log_%d{yyyy-MM-dd}.log" />
         </rollingPolicy>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %msg%n"/>
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
             <param name="LevelMin" value="INFO"/>
@@ -81,7 +81,7 @@
             <param name="FileNamePattern" value="./log/log_%d{yyyy-MM-dd}.log" />
         </rollingPolicy>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %msg%n"/>
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
             <param name="LevelMin" value="WARN"/>
@@ -100,7 +100,7 @@
         <!--   <param name="MaxFileSize" value="5KB"/> -->
         <!--   <param name="MaxBackupIndex" value="2"/> -->
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %msg%n"/>
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
             <param name="LevelMin" value="ERROR"/>
@@ -129,7 +129,7 @@
         <param name="SMTPPassword" value="test" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
-                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %msg%n" />
+                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %M() @%L %logger{50} - %m%n" />
         </layout>
     </appender>
 
