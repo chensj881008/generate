@@ -25,9 +25,20 @@
     </sql>
 
     <insert id="insert${param?cap_first}" parameterType="${paramType}">
-        <#if (isAutoPKS == 0)>
+     <#if (dbType =='mysql')>
+         <#if (isAutoPKS == 0)>
+        <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(UUID() AS char(36)) AS ID </selectKey>
+         </#if>
+     <#elseif (dbType='sqlserver')>
+         <#if (isAutoPKS == 0)>
         <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(NEWID() AS VARCHAR(36)) AS ID</selectKey>
-        </#if>
+         </#if>
+     <#elseif (dbType='oracle')>
+         <#if (isAutoPKS == 0)>
+        <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(sys_guid() AS VARCHAR(36)) AS ID</selectKey>
+         </#if>
+     </#if>
+
         INSERT INTO ${tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
         <#list cols as col>
@@ -76,7 +87,7 @@
             <#--<if test="(${pk.domainColumnName} != null and ${pk.domainColumnName} != '')"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>-->
 
         </#list>
-            <if test="${pkListStr} and (map.pks != null and map.size > 0)">
+            <if test="${pkListStr} and (map.pks != null and map.pks.size > 0)">
                 and (${pkString}) in
                 <foreach item="item" collection="map.pks" open="(" separator="," close=")"> ${r"#{item}"}</foreach>
             </if>
@@ -93,7 +104,7 @@
             <if test="(${pk.domainColumnName} != null )"> and ${pk.actualColumnName} = ${r'#{'} ${pk.domainColumnName}, jdbcType= ${pk.jdbcTypeName } ${r'}'}   </if>
             </#if>
         </#list>
-            <if test="${pkListStr} and (map.pks != null and map.size > 0)">
+            <if test="${pkListStr} and (map.pks != null and map.pks.size > 0)">
                 and (${pkString}) in
                 <foreach item="item" collection="map.pks" open="(" separator="," close=")"> ${r"#{item}"}</foreach>
             </if>
@@ -124,7 +135,7 @@
             <include refid="sql-${param}" />
         </where>
     </select>
-
+ <#if dbType ='sqlserver'>
     <select id="select${param?cap_first}PageList" resultMap="${param}Result" parameterType="${paramType}">
         SELECT * FROM (
         SELECT t.* ,
@@ -136,6 +147,29 @@
         <!-- order by ${pks} asc -->
         ) TEMP_TABLE WHERE _RN BETWEEN  ${r"#{row.first}"} + 1 AND ${r"#{row.first}"} + ${r"#{row.count}"}
     </select>
-
+ <#elseif dbType='mysql'>
+    <select id="select${param?cap_first}PageList" resultMap="${param}Result" parameterType="${paramType}">
+     SELECT * FROM (
+     SELECT t.*
+     FROM ${tableName} t
+     <where>
+         <include refid="sql-${param}" />
+     </where>
+     order by ${pks} asc
+     ) TEMP_TABLE limit  ${r"#{row.first}"} , ${r"#{row.first}"} + ${r"#{row.count}"}
+    </select>
+ <#elseif dbType='oracle'>
+     <select id="select${param?cap_first}PageList" resultMap="${param}Result" parameterType="${paramType}">
+         SELECT * FROM (
+         SELECT t.* ,
+         ROWNUM AS _RN
+         FROM ${tableName} t
+         <where>
+             <include refid="sql-${param}" />
+         </where>
+         order by ${pks} asc
+         ) TEMP_TABLE WHERE _RN BETWEEN  ${r"#{row.first}"} + 1 AND ${r"#{row.first}"} + ${r"#{row.count}"}
+     </select>
+ </#if>
 
 </mapper>

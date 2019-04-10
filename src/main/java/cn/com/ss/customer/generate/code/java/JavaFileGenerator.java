@@ -143,6 +143,7 @@ public class JavaFileGenerator extends AbstractGenerator {
         dataMap.put("date",DateUtils.getCurrentDate());
         dataMap.put("className",t.getDomainName()+"Dao");
         dataMap.put("domainName",t.getDomainName());
+        dataMap.put("dbType",t.getDbType());
 
 
         return  dataMap;

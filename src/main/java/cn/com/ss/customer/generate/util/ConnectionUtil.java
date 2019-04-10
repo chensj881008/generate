@@ -29,7 +29,14 @@ public class ConnectionUtil {
         datasource.setMaxWait(60000);
         datasource.setTimeBetweenEvictionRunsMillis(60000);
         datasource.setMinEvictableIdleTimeMillis(300000);
-        datasource.setValidationQuery("SELECT GETDATE()");
+        String dbType = JdbcUtils.getDbType(PropertiesLoader.getProperty("db.url"), null);
+        if(JdbcUtils.SQL_SERVER.equals(dbType)){
+            datasource.setValidationQuery("SELECT GETDATE()");
+        }else if(JdbcUtils.MYSQL.equals(dbType)){
+            datasource.setValidationQuery("SELECT 1");
+        }else if(JdbcUtils.ORACLE.equals(dbType)){
+            datasource.setValidationQuery("SELECT dual");
+        }
         datasource.setTestWhileIdle(true);
         datasource.setTestOnBorrow(false);
         datasource.setTestOnReturn(false);

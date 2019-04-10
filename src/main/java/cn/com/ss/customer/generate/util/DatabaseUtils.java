@@ -32,6 +32,7 @@ public class DatabaseUtils {
         info.setAlias(DatabaseNameUtils.convertFromDBToJava(tableName,1));
         info.setDomainPackage(Constant.DOMAIN_PACKAGE);
         info.setDomainPath(PropertiesLoader.getProperty("config.path"));
+        info.setDbType(JdbcUtils.getDbType(PropertiesLoader.getProperty("db.url"),null));
         DatabaseMetaData metaData =  connection.getMetaData();
         getPrimaryKey(metaData,info);
         getColumns(metaData,info);

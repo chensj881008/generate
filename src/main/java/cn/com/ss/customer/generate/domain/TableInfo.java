@@ -44,6 +44,7 @@ public class TableInfo {
     private String catalog;
     private String schema;
     private String remark;
+    private String dbType;
 
     public TableInfo() {
         this.tableColumnInfos = new ArrayList<>();
@@ -142,6 +143,14 @@ public class TableInfo {
         this.remark = remark;
     }
 
+    public String getDbType() {
+        return dbType;
+    }
+
+    public void setDbType(String dbType) {
+        this.dbType = dbType;
+    }
+
     @Override
     public String toString() {
         return "TableInfo{" +
@@ -154,6 +163,7 @@ public class TableInfo {
                 ", actualTableName=" + actualTableName +
                 ", catalog='" + catalog + '\'' +
                 ", schema='" + schema + '\'' +
+                ", dbType='" + dbType + '\'' +
                 '}';
     }
 }
