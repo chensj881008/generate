@@ -61,6 +61,7 @@ public class GenerateFileUtils {
         JavaJpaFileGenerator generator = new JavaJpaFileGenerator();
         generator.setTableInfo(info);
         Map<String, Object> domainData = generator.generateDomainData();
+        Map<String, Object> repositoryData = generator.generateRepositoryData();
         boolean isJpaUseLombok = Boolean.valueOf(PropertiesLoader.getProperty("config.isJpaUseLombok"));
         if(isJpaUseLombok){
             generateJpaLombokDomainFile(domainData,info);
@@ -68,6 +69,35 @@ public class GenerateFileUtils {
             generateJpaDomainFile(domainData,info);
         }
 
+        generateJpaRepositoryFile(repositoryData,info);
+    }
+    private static void generateJpaRepositoryFile(Map<String, Object> data, TableInfo info) {
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("repository.ftl");
+            String path = info.getDomainPath();
+            String pack = Constant.DAO_PACKAGE;
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + info.getDomainName() + "Repository.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
     private static void generateJpaDomainFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
