@@ -17,30 +17,30 @@ import org.hibernate.annotations.GenericGenerator;
 public class ${className} implements Serializable {
 
     private static final long serialVersionUID = -1L;
-
-    <#list props as prop >
-    <#if prop.isSequenceColumn = true>
-        <#if prop.typeName = "String">
-    /**
+    <#list propNumPks as prop >
+     /**
      * 字段名：${prop.actualColumnName}
      * 备注: ${(prop.remarks)!'无'}
      * 默认值：${(prop.defaultValue)!'无'}
      */
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "${prop.actualColumnName}")
+    private ${prop.typeName} ${prop.domainColumnName};
+    </#list>
+    <#list propStrPks as prop >
+     /**
+     * 字段名：${prop.actualColumnName}
+     * 备注: ${(prop.remarks)!'无'}
+     * 默认值：${(prop.defaultValue)!'无'}
+     */
+    @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid")
     @Column(name = "${prop.actualColumnName}")
     private ${prop.typeName} ${prop.domainColumnName};
-        <#else>
-    /**
-     * 字段名：${prop.actualColumnName}
-     * 备注: ${(prop.remarks)!'无'}
-     * 默认值：${(prop.defaultValue)!'无'}
-     */
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "${prop.actualColumnName}")
-    private ${prop.typeName} ${prop.domainColumnName};
-        </#if>
-    <#else >
+    </#list>
+    <#list props as prop >
      /**
      * 字段名：${prop.actualColumnName}
      * 备注: ${(prop.remarks)!'无'}
@@ -48,13 +48,51 @@ public class ${className} implements Serializable {
      */
     @Column(name = "${prop.actualColumnName}")
     private ${prop.typeName} ${prop.domainColumnName};
-    </#if>
     </#list>
 
     public ${className} (){
 
     }
+<#list propNumPks as prop >
+   /**
+   * 字段名：${prop.actualColumnName}
+   * get方法
+   * 备注: ${(prop.remarks)!'无'}
+   */
+   public ${prop.typeName} get${prop.domainColumnName?cap_first}(){
 
+        return ${prop.domainColumnName};
+   }
+
+   /**
+   * 字段名：${prop.actualColumnName}
+   * set方法
+   * 备注: ${(prop.remarks)!'无'}
+   */
+   public void set${prop.domainColumnName?cap_first}(${prop.typeName} ${prop.domainColumnName}){
+        this.${prop.domainColumnName} = ${prop.domainColumnName};
+   }
+</#list>
+<#list propStrPks as prop >
+   /**
+   * 字段名：${prop.actualColumnName}
+   * get方法
+   * 备注: ${(prop.remarks)!'无'}
+   */
+   public ${prop.typeName} get${prop.domainColumnName?cap_first}(){
+
+        return ${prop.domainColumnName};
+   }
+
+   /**
+   * 字段名：${prop.actualColumnName}
+   * set方法
+   * 备注: ${(prop.remarks)!'无'}
+   */
+   public void set${prop.domainColumnName?cap_first}(${prop.typeName} ${prop.domainColumnName}){
+        this.${prop.domainColumnName} = ${prop.domainColumnName};
+   }
+</#list>
    <#list props as prop >
    /**
    * 字段名：${prop.actualColumnName}

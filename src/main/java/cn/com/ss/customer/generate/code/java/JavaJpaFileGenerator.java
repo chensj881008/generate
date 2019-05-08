@@ -46,21 +46,26 @@ public class JavaJpaFileGenerator extends AbstractGenerator {
         dataMap.put("tableName",t.getTableName());
         List<TableColumnInfo> propData = new ArrayList<>();
         List<TableColumnInfo> propPkData = new ArrayList<>();
+        List<TableColumnInfo> propNumPkData = new ArrayList<>();
         for (TableColumnInfo prop : props) {
             String typeName =  prop.getFullyQualifiedJavaType().toString();
             String type = typeName.substring(typeName.lastIndexOf(".")+1);
             prop.setTypeName(type);
-            if(prop.isSequenceColumn()){
+            if(prop.isSequenceColumn() && "Long".equals(type)){
+                propNumPkData.add(prop);
+            } else if(prop.isSequenceColumn() && "String".equals(type)){
                 propPkData.add(prop);
             }else{
                 propData.add(prop);
             }
         }
-        dataMap.put("propPk",propPkData);
         dataMap.put("props",propData);
+        dataMap.put("propNumPks",propNumPkData);
+        dataMap.put("propStrPks",propPkData);
         List<String> methodData = new ArrayList<>();
 
         dataMap.put("methodData",methodData);
         return  dataMap;
     }
+
 }

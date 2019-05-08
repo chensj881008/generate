@@ -61,7 +61,13 @@ public class GenerateFileUtils {
         JavaJpaFileGenerator generator = new JavaJpaFileGenerator();
         generator.setTableInfo(info);
         Map<String, Object> domainData = generator.generateDomainData();
-        generateJpaDomainFile(domainData,info);
+        boolean isJpaUseLombok = Boolean.valueOf(PropertiesLoader.getProperty("config.isJpaUseLombok"));
+        if(isJpaUseLombok){
+            generateJpaLombokDomainFile(domainData,info);
+        }else{
+            generateJpaDomainFile(domainData,info);
+        }
+
     }
     private static void generateJpaDomainFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
@@ -70,6 +76,34 @@ public class GenerateFileUtils {
             File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
             config.setDirectoryForTemplateLoading(templateFile);
             Template template = config.getTemplate("domain-jpa.ftl");
+            String path = info.getDomainPath();
+            String pack = info.getDomainPackage();
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + info.getDomainName() + ".java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private static void generateJpaLombokDomainFile(Map<String, Object> data, TableInfo info) {
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("domain-jpa-lombok.ftl");
             String path = info.getDomainPath();
             String pack = info.getDomainPackage();
             String targePath = FileUtils.createABSPath(path, pack);
