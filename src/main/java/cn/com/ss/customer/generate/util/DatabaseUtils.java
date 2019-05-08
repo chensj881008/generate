@@ -36,6 +36,14 @@ public class DatabaseUtils {
         DatabaseMetaData metaData =  connection.getMetaData();
         getPrimaryKey(metaData,info);
         getColumns(metaData,info);
+        // 主键判断
+        for (TableColumnInfo columnInfo : info.getTableColumnInfos()) {
+            for (String key : info.getPrimaryKeys()) {
+                if(columnInfo.getActualColumnName().equals(key)){
+                    columnInfo.setSequenceColumn(true);
+                }
+            }
+        }
         return info;
     }
 

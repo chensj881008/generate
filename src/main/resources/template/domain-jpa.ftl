@@ -4,7 +4,7 @@ package ${packageName};
 ${value}
 </#list>
 import javax.persistence.*;
-
+import org.hibernate.annotations.GenericGenerator;
 /**
  * @author ${author}
  * @title ${title}
@@ -19,13 +19,36 @@ public class ${className} implements Serializable {
     private static final long serialVersionUID = -1L;
 
     <#list props as prop >
+    <#if prop.isSequenceColumn = true>
+        <#if prop.typeName = "String">
     /**
+     * 字段名：${prop.actualColumnName}
+     * 备注: ${(prop.remarks)!'无'}
+     * 默认值：${(prop.defaultValue)!'无'}
+     */
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @Column(name = "${prop.actualColumnName}")
+    private ${prop.typeName} ${prop.domainColumnName};
+        <#else>
+    /**
+     * 字段名：${prop.actualColumnName}
+     * 备注: ${(prop.remarks)!'无'}
+     * 默认值：${(prop.defaultValue)!'无'}
+     */
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "${prop.actualColumnName}")
+    private ${prop.typeName} ${prop.domainColumnName};
+        </#if>
+    <#else >
+     /**
      * 字段名：${prop.actualColumnName}
      * 备注: ${(prop.remarks)!'无'}
      * 默认值：${(prop.defaultValue)!'无'}
      */
     @Column(name = "${prop.actualColumnName}")
     private ${prop.typeName} ${prop.domainColumnName};
+    </#if>
     </#list>
 
     public ${className} (){

@@ -2,6 +2,7 @@ package cn.com.ss.customer.generate.util;
 
 import cn.com.ss.customer.generate.Constant;
 import cn.com.ss.customer.generate.code.java.JavaFileGenerator;
+import cn.com.ss.customer.generate.code.java.JavaJpaFileGenerator;
 import cn.com.ss.customer.generate.domain.TableInfo;
 import cn.com.ss.customer.generate.test.MainTest;
 import freemarker.template.Configuration;
@@ -39,14 +40,88 @@ public class GenerateFileUtils {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        if(!isConfiig){
-            generateOnceFile();
-            isConfiig = true;
+        // 判断JPA
+        boolean isJpa = Boolean.valueOf(PropertiesLoader.getProperty("config.isJpa"));
+        if(isJpa){
+            generateJpaFile(info);
+        }else{
+            if(!isConfiig){
+                generateOnceFile();
+                isConfiig = true;
+            }
+            generateFile(info);
         }
-        generateFile(info);
-
+    }
+    //==============================================JPA 配置文件================================================================
+    /**
+     * jpa 文件生成
+     * @param info
+     */
+    private static void generateJpaFile(TableInfo info) {
+        JavaJpaFileGenerator generator = new JavaJpaFileGenerator();
+        generator.setTableInfo(info);
+        Map<String, Object> domainData = generator.generateDomainData();
+        generateJpaDomainFile(domainData,info);
+    }
+    private static void generateJpaDomainFile(Map<String, Object> data, TableInfo info) {
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("domain-jpa.ftl");
+            String path = info.getDomainPath();
+            String pack = info.getDomainPackage();
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + info.getDomainName() + ".java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
+    //==============================================MyBatis 配置文件================================================================
+    /**
+     * 文件生成
+     * @param info
+     */
+    private static void generateFile(TableInfo info ){
+        JavaFileGenerator generator = new JavaFileGenerator();
+        generator.setTableInfo(info);
+        Map<String, Object> domainData = generator.generateDomainData();
+        Map<String, Object> clientData = generator.generateJavaClientData();
+        Map<String, Object> sqlMapData = generator.generateSqlMapData();
+        Map<String, Object> serviceData = generator.generateJavaServiceData();
+        Map<String, Object>  serviceImplData = generator.generateJavaServiceImplData();
+        Map<String, Object>  controllerData = generator.generateJavaControllerData();
+        // 判断是否使用Lombok
+        if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseLombok"))){
+            generateDomainFileForLombok(domainData, info);
+        }else{
+            generateDomainFile(domainData, info);
+        }
+        if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
+            generateClientFileForRedis(clientData, info);
+        }else{
+            generateClientFile(clientData, info);
+        }
+        generateSqlMapFile(sqlMapData, info);
+        generateServiceFile(serviceData, info);
+        generateServiceImplFile(serviceImplData,info);
+        generateControllerFile(controllerData,info);
+
+    }
     /**
      * 生成一次性文件
      * mybatis-config、BaseDomain和Row文件
@@ -230,37 +305,6 @@ public class GenerateFileUtils {
                 }
             }
         }
-    }
-
-    /**
-     * 文件生成
-     * @param info
-     */
-    private static void generateFile(TableInfo info ){
-        JavaFileGenerator generator = new JavaFileGenerator();
-        generator.setTableInfo(info);
-        Map<String, Object> domainData = generator.generateDomainData();
-        Map<String, Object> clientData = generator.generateJavaClientData();
-        Map<String, Object> sqlMapData = generator.generateSqlMapData();
-        Map<String, Object> serviceData = generator.generateJavaServiceData();
-        Map<String, Object>  serviceImplData = generator.generateJavaServiceImplData();
-        Map<String, Object>  controllerData = generator.generateJavaControllerData();
-        // 判断是否使用Lombok
-        if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseLombok"))){
-            generateDomainFileForLombok(domainData, info);
-        }else{
-            generateDomainFile(domainData, info);
-        }
-        if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
-            generateClientFileForRedis(clientData, info);
-        }else{
-            generateClientFile(clientData, info);
-        }
-        generateSqlMapFile(sqlMapData, info);
-        generateServiceFile(serviceData, info);
-        generateServiceImplFile(serviceImplData,info);
-        generateControllerFile(controllerData,info);
-
     }
 
     /**
