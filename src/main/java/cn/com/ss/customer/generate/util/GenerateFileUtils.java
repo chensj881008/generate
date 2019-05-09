@@ -34,6 +34,7 @@ public class GenerateFileUtils {
     private static Logger logger = LoggerFactory.getLogger(GenerateFileUtils.class);
 
     public static void generateFile(String tableName, Connection connection) {
+        logger.info("开始解析表:{}",tableName);
         TableInfo info = null;
         try {
             info = DatabaseUtils.getTableInfo(tableName, connection);
@@ -42,14 +43,19 @@ public class GenerateFileUtils {
         }
         // 判断JPA
         boolean isJpa = Boolean.valueOf(PropertiesLoader.getProperty("config.isJpa"));
+        logger.info("是否使用JPA:{}",isJpa);
         if(isJpa){
+            logger.info("生成JPA文件开始,Table Name:{}",info.getTableName());
             generateJpaFile(info);
+            logger.info("生成JPA文件结束");
         }else{
+            logger.info("生成MyBatis文件开始,Table Name:{}",info.getTableName());
             if(!isConfiig){
                 generateOnceFile();
                 isConfiig = true;
             }
             generateFile(info);
+            logger.info("生成MyBatis文件结束");
         }
     }
     //==============================================JPA 配置文件================================================================
@@ -63,14 +69,23 @@ public class GenerateFileUtils {
         Map<String, Object> domainData = generator.generateDomainData();
         Map<String, Object> repositoryData = generator.generateRepositoryData();
         boolean isJpaUseLombok = Boolean.valueOf(PropertiesLoader.getProperty("config.isJpaUseLombok"));
+        logger.info("JPA中是否使用Lombok:{}",isJpaUseLombok);
         if(isJpaUseLombok){
+            logger.info("生成JPA-Lombok Domain,Table Name:{}",info.getTableName());
             generateJpaLombokDomainFile(domainData,info);
         }else{
+            logger.info("生成JPA Domain,Table Name:{}",info.getTableName());
             generateJpaDomainFile(domainData,info);
         }
-
+        logger.info("生成JPA Repository,Table Name:{}",info.getTableName());
         generateJpaRepositoryFile(repositoryData,info);
     }
+
+    /**
+     * 生成JPA Repository
+     * @param data map data
+     * @param info table
+     */
     private static void generateJpaRepositoryFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -99,6 +114,12 @@ public class GenerateFileUtils {
             }
         }
     }
+
+    /**
+     * 生成JPA Domain
+     * @param data map data
+     * @param info table
+     */
     private static void generateJpaDomainFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -127,6 +148,11 @@ public class GenerateFileUtils {
         }
     }
 
+    /**
+     * 生成JPA-Lombok Domain
+     * @param data map data
+     * @param info table
+     */
     private static void generateJpaLombokDomainFile(Map<String, Object> data, TableInfo info) {
         Configuration config = new Configuration();
         Writer writer = null;
@@ -170,19 +196,29 @@ public class GenerateFileUtils {
         Map<String, Object>  serviceImplData = generator.generateJavaServiceImplData();
         Map<String, Object>  controllerData = generator.generateJavaControllerData();
         // 判断是否使用Lombok
+        logger.info("MyBatis中是否使用Lombok:{}",Boolean.valueOf(PropertiesLoader.getProperty("config.isUseLombok")));
         if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseLombok"))){
+            logger.info("生成MyBatis-Lombok Domain,Table Name:{}",info.getTableName());
             generateDomainFileForLombok(domainData, info);
         }else{
+            logger.info("生成MyBatis Domain,Table Name:{}",info.getTableName());
             generateDomainFile(domainData, info);
         }
+        logger.info("MyBatis中是否使用Redis:{}",Boolean.valueOf(PropertiesLoader.getProperty("config.isUseLombok")));
         if(Boolean.valueOf(PropertiesLoader.getProperty("config.isUseRedis"))){
+            logger.info("生成MyBatis-Redis Client,Table Name:{}",info.getTableName());
             generateClientFileForRedis(clientData, info);
         }else{
+            logger.info("生成MyBatis Client,Table Name:{}",info.getTableName());
             generateClientFile(clientData, info);
         }
+        logger.info("生成MyBatis SqlMap,Table Name:{}",info.getTableName());
         generateSqlMapFile(sqlMapData, info);
+        logger.info("生成MyBatis Service,Table Name:{}",info.getTableName());
         generateServiceFile(serviceData, info);
+        logger.info("生成MyBatis ServiceImpl,Table Name:{}",info.getTableName());
         generateServiceImplFile(serviceImplData,info);
+        logger.info("生成MyBatis Controller,Table Name:{}",info.getTableName());
         generateControllerFile(controllerData,info);
 
     }
