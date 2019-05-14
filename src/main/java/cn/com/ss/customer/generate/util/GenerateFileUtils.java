@@ -68,6 +68,8 @@ public class GenerateFileUtils {
         generator.setTableInfo(info);
         Map<String, Object> domainData = generator.generateDomainData();
         Map<String, Object> repositoryData = generator.generateRepositoryData();
+        Map<String, Object> serviceData = generator.generateJavaServiceData();
+        Map<String, Object> serviceImplData = generator.generateJavaServiceImplData();
         boolean isJpaUseLombok = Boolean.valueOf(PropertiesLoader.getProperty("config.isJpaUseLombok"));
         logger.info("JPA中是否使用Lombok:{}",isJpaUseLombok);
         if(isJpaUseLombok){
@@ -79,6 +81,10 @@ public class GenerateFileUtils {
         }
         logger.info("生成JPA Repository,Table Name:{}",info.getTableName());
         generateJpaRepositoryFile(repositoryData,info);
+        logger.info("生成JPA Service,Table Name:{}",info.getTableName());
+        generateJpaServiceFile(serviceData,info);
+        logger.info("生成JPA ServiceImpl,Table Name:{}",info.getTableName());
+        generateJpaServiceImplFile(serviceImplData,info);
     }
 
     /**
@@ -179,6 +185,72 @@ public class GenerateFileUtils {
                 }
             }
         }
+    }
+    /**
+     * 生成Service JPA层文件
+     * @param data
+     * @param info
+     */
+    private static void generateJpaServiceFile(Map<String, Object> data, TableInfo info) {
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("services-jpa.ftl");
+            String path = info.getDomainPath();
+            String pack = Constant.SERVICE_PACKAGE;
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + info.getDomainName() + "Service.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * 生成Service JPA实现层文件
+     * @param data
+     * @param info
+     */
+    private static void generateJpaServiceImplFile(Map<String, Object> data, TableInfo info) {
+        Configuration config = new Configuration();
+        Writer writer = null;
+        try {
+            File templateFile = new File(GenerateFileUtils.class.getClassLoader().getResource("template").getPath());
+            config.setDirectoryForTemplateLoading(templateFile);
+            Template template = config.getTemplate("servicesImpl-jpa.ftl");
+            String path = info.getDomainPath();
+            String pack = Constant.SERVICEIMPL_PACKAGE;
+            String targePath = FileUtils.createABSPath(path, pack);
+            File file = new File(targePath + File.separator + info.getDomainName() + "ServiceImpl.java");
+            writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+            template.process(data, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 
     //==============================================MyBatis 配置文件================================================================

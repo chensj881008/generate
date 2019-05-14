@@ -4,6 +4,7 @@ import cn.com.ss.customer.generate.Constant;
 import cn.com.ss.customer.generate.code.AbstractGenerator;
 import cn.com.ss.customer.generate.domain.TableColumnInfo;
 import cn.com.ss.customer.generate.domain.TableInfo;
+import cn.com.ss.customer.generate.util.DatabaseNameUtils;
 import cn.com.ss.customer.generate.util.DateUtils;
 import cn.com.ss.customer.generate.util.FullyQualifiedJavaType;
 import cn.com.ss.customer.generate.util.PropertiesLoader;
@@ -90,6 +91,7 @@ public class JavaJpaFileGenerator extends AbstractGenerator {
                 idStr = type;
             }
         }
+        importData.add("import "+t.getDomainPackage()+"."+t.getDomainName()+";");
         dataMap.put("idStr",idStr);
         dataMap.put("importData",importData);
         dataMap.put("author", PropertiesLoader.getProperty("config.author"));
@@ -99,6 +101,54 @@ public class JavaJpaFileGenerator extends AbstractGenerator {
         dataMap.put("alias",t.getAlias());
         dataMap.put("className",t.getDomainName());
         dataMap.put("tableName",t.getTableName());
+        return  dataMap;
+    }
+    /**
+     * 生成Service层文件数据
+     * @return map
+     */
+    public Map<String,Object>  generateJavaServiceData(){
+        TableInfo t = this.getTableInfo();
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("packageName", Constant.SERVICE_PACKAGE);
+        List<String> importData = new ArrayList<>();
+        importData.add("import java.util.List;  \n");
+        importData.add("import "+t.getDomainPackage()+"."+t.getDomainName()+";  \n");
+        dataMap.put("importData",importData);
+        dataMap.put("author",PropertiesLoader.getProperty("config.author"));
+        dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"服务接口");
+        dataMap.put("email", PropertiesLoader.getProperty("config.email"));
+        dataMap.put("date",DateUtils.getCurrentDate());
+        dataMap.put("className",t.getDomainName()+"Service");
+        dataMap.put("domainName",t.getDomainName());
+        dataMap.put("paramT", DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
+        return  dataMap;
+    }
+
+    /**
+     * 生成Service 实现层文件数据
+     * @return map
+     */
+    public Map<String,Object>  generateJavaServiceImplData(){
+        TableInfo t = this.getTableInfo();
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("packageName", Constant.SERVICEIMPL_PACKAGE);
+        List<String> importData = new ArrayList<>();
+        importData.add("import java.util.List;  \n");
+        importData.add("import "+t.getDomainPackage()+"."+t.getDomainName()+";  \n");
+        importData.add("import "+ Constant.DAO_PACKAGE+"."+t.getDomainName()+"Repository;  \n");
+        importData.add("import "+ Constant.SERVICE_PACKAGE+"."+t.getDomainName()+"Service;  \n");
+        dataMap.put("importData",importData);
+        dataMap.put("author",PropertiesLoader.getProperty("config.author"));
+        dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"服务接口");
+        dataMap.put("email", PropertiesLoader.getProperty("config.email"));
+        dataMap.put("date",DateUtils.getCurrentDate());
+        dataMap.put("className",t.getDomainName()+"ServiceImpl");
+        dataMap.put("pClassName",t.getDomainName()+"Service");
+        dataMap.put("daoClassName",t.getDomainName()+"Repository");
+        dataMap.put("daoClassNameT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1) +"Repository");
+        dataMap.put("domainName",t.getDomainName());
+        dataMap.put("paramT",DatabaseNameUtils.convertFromDBToJava(t.getTableName(),1));
         return  dataMap;
     }
 
