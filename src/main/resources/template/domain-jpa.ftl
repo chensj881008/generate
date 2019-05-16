@@ -5,6 +5,7 @@ ${value}
 </#list>
 import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * @author ${author}
  * @title ${title}
@@ -14,6 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name = "${tableName}")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 public class ${className} implements Serializable {
 
     private static final long serialVersionUID = -1L;
