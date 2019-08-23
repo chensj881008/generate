@@ -1,5 +1,9 @@
 package ${domainPackage};
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+
 import java.io.Serializable;
 
 public class Row implements Serializable {
@@ -68,4 +72,31 @@ public class Row implements Serializable {
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
     }
+
+    /**
+    * 分页参数
+    * @return Pageable
+    */
+    public Pageable getPageable(){
+        // 存在需要排序的时候，则处理排序
+        if(this.sort != null && this.order != null){
+            Sort sort = null ;
+            Sort.Direction direction = null;
+            switch (this.order){
+            case "asc" :
+            direction = Sort.Direction.ASC;
+            break;
+            default:
+            direction = Sort.Direction.DESC;
+            break;
+        }
+        sort = new Sort(
+            direction,this.sort
+        );
+        return  PageRequest.of((this.currentPage -1),this.pageSize,sort);
+        }else{
+        // 不处理排序 PageRequest 从0开始
+        return  PageRequest.of((this.currentPage -1),this.pageSize);
+    }
+
 }

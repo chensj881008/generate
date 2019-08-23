@@ -3,9 +3,6 @@ package ${packageName};
 <#list importData as value>
 ${value}
 </#list>
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 /**
 * @author ${author}
 * @title ${title}
@@ -37,5 +34,17 @@ public interface ${className} {
      * @param ${paramT}
      * @return ${domainName}List
      */
-    Page<${domainName}> get${domainName}PageList(${domainName} ${paramT}, ExampleMatcher matcher, Pageable pageable);
+    Page<${domainName}> get${domainName}PageList(${domainName} ${paramT}, Row row);
+    /**
+     * ${domainName}服务接口 统计总数
+     * @param ${paramT}
+     * @return long
+     */
+    Long countBy${domainName}(${domainName} ${paramT});
+    /**
+     * ${domainName}服务接口 获取list
+     * @param ${paramT}
+     * @return ${domainName}List
+     */
+    List<${domainName}> findAllBy${domainName}(${domainName} ${paramT});
 }

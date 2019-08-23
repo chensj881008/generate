@@ -42,8 +42,21 @@ public class ${className} implements  ${pClassName} {
     }
 
     @Override
-    public Page<${domainName}> get${domainName}PageList(${domainName} ${paramT}, ExampleMatcher matcher, Pageable pageable) {
-    Example<${domainName}> example = Example.of(${paramT},matcher);
+    public Page<${domainName}> get${domainName}PageList(${domainName} ${paramT}, Row row) {
+        Pageable pageable = row.getPageable();
+        ExampleMatcher matcher = ExampleMatcher.matching();
+        Example<${domainName}> example = Example.of(${paramT},matcher);
         return ${daoClassNameT}.findAll(example,pageable);
     }
+
+    @Override
+    Long countBy${domainName}(${domainName} ${paramT}){
+        return ${daoClassNameT}.count(Example.of(${paramT}));
+    }
+
+    @Override
+    List<${domainName}> findAllBy${domainName}(${domainName} ${paramT}){
+        return ${daoClassNameT}.findAll(Example.of(${paramT}));
+    }
+
 }

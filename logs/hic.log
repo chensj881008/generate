@@ -1,0 +1,28 @@
+2019-08-23 22:32:32.225 INFO  cn.com.ss.customer.generate.Runner ----开始准备导出数据---
+2019-08-23 22:32:32.258 INFO  cn.com.ss.customer.generate.Runner -连接数据库
+2019-08-23 22:32:32.311 INFO  c.c.s.c.g.util.PropertiesLoader -===config.properties loaded===
+2019-08-23 22:32:33.196 INFO  cn.com.ss.customer.generate.Runner -数据库连接成功
+2019-08-23 22:32:33.205 INFO  c.c.s.c.g.util.GenerateFileUtils -开始解析表:t_user
+2019-08-23 22:32:33.645 INFO  c.c.s.c.g.util.GenerateFileUtils -是否使用JPA:true
+2019-08-23 22:32:33.645 INFO  c.c.s.c.g.util.GenerateFileUtils -生成Row 分页文件信息
+2019-08-23 22:32:33.905 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA文件开始,Table Name:t_user
+2019-08-23 22:32:33.915 INFO  c.c.s.c.g.util.GenerateFileUtils -JPA中是否使用Lombok:true
+2019-08-23 22:32:33.915 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA-Lombok Domain,Table Name:t_user
+2019-08-23 22:32:33.943 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA Repository,Table Name:t_user
+2019-08-23 22:32:33.949 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA Service,Table Name:t_user
+2019-08-23 22:32:33.957 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA ServiceImpl,Table Name:t_user
+2019-08-23 22:32:33.967 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA文件结束
+2019-08-23 22:34:27.829 INFO  cn.com.ss.customer.generate.Runner ----开始准备导出数据---
+2019-08-23 22:34:27.831 INFO  cn.com.ss.customer.generate.Runner -连接数据库
+2019-08-23 22:34:27.856 INFO  c.c.s.c.g.util.PropertiesLoader -===config.properties loaded===
+2019-08-23 22:34:28.545 INFO  cn.com.ss.customer.generate.Runner -数据库连接成功
+2019-08-23 22:34:28.552 INFO  c.c.s.c.g.util.GenerateFileUtils -开始解析表:t_user
+2019-08-23 22:34:57.202 INFO  c.c.s.c.g.util.GenerateFileUtils -是否使用JPA:true
+2019-08-23 22:34:57.203 INFO  c.c.s.c.g.util.GenerateFileUtils -生成Row 分页文件信息
+2019-08-23 22:34:57.360 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA文件开始,Table Name:t_user
+2019-08-23 22:34:57.363 INFO  c.c.s.c.g.util.GenerateFileUtils -JPA中是否使用Lombok:true
+2019-08-23 22:34:57.364 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA-Lombok Domain,Table Name:t_user
+2019-08-23 22:34:57.376 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA Repository,Table Name:t_user
+2019-08-23 22:34:57.380 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA Service,Table Name:t_user
+2019-08-23 22:34:57.385 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA ServiceImpl,Table Name:t_user
+2019-08-23 22:34:57.390 INFO  c.c.s.c.g.util.GenerateFileUtils -生成JPA文件结束
