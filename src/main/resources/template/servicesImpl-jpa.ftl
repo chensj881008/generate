@@ -50,12 +50,12 @@ public class ${className} implements  ${pClassName} {
     }
 
     @Override
-    Long countBy${domainName}(${domainName} ${paramT}){
+    public Long countBy${domainName}(${domainName} ${paramT}){
         return ${daoClassNameT}.count(Example.of(${paramT}));
     }
 
     @Override
-    List<${domainName}> findAllBy${domainName}(${domainName} ${paramT}){
+    public List<${domainName}> findAllBy${domainName}(${domainName} ${paramT}){
         return ${daoClassNameT}.findAll(Example.of(${paramT}));
     }
 

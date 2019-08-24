@@ -114,7 +114,7 @@ public class JavaJpaFileGenerator extends AbstractGenerator {
         List<String> importData = new ArrayList<>();
         importData.add("import java.util.List;  \n");
         importData.add("import "+t.getDomainPackage()+"."+t.getDomainName()+";  \n");
-        importData.add(Constant.DOMAIN_PACKAGE+".support.Row");
+        importData.add("import "+Constant.DOMAIN_PACKAGE+".support.Row; \n");
         dataMap.put("importData",importData);
         dataMap.put("author",PropertiesLoader.getProperty("config.author"));
         dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"服务接口");
@@ -139,6 +139,7 @@ public class JavaJpaFileGenerator extends AbstractGenerator {
         importData.add("import "+t.getDomainPackage()+"."+t.getDomainName()+";  \n");
         importData.add("import "+ Constant.DAO_PACKAGE+"."+t.getDomainName()+"Repository;  \n");
         importData.add("import "+ Constant.SERVICE_PACKAGE+"."+t.getDomainName()+"Service;  \n");
+        importData.add("import "+Constant.DOMAIN_PACKAGE+".support.Row; \n");
         dataMap.put("importData",importData);
         dataMap.put("author",PropertiesLoader.getProperty("config.author"));
         dataMap.put("title",t.getRemark() == null ? t.getTableName() :"".equals(t.getRemark()) ? t.getTableName() :t.getRemark()  +"服务接口");
