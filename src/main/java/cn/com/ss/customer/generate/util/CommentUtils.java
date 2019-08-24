@@ -74,7 +74,7 @@ public class CommentUtils {
 
     private static String tableColumnCommentForrOracle(TableInfo info,String colName) {
         String sql = "select column_name,comments from user_col_comments " +
-                "where table_name='"+info.getTableName()+"' \" and  column_name= '"+colName+"'" ;
+                "where table_name='"+info.getTableName()+"'  and  column_name= '"+colName+"'" ;
         return  queryDatabaseBySql(sql);
     }
 
@@ -88,7 +88,7 @@ public class CommentUtils {
 
     private static String tableColumnCommentForrMySql(TableInfo info,String colName) {
         String sql = "select COLUMN_NAME,column_comment from INFORMATION_SCHEMA.Columns " +
-                "where table_name='"+info.getTableName()+"' \" and  COLUMN_NAME= '"+colName+"'" +
+                "where table_name='"+info.getTableName()+"'  and  COLUMN_NAME= '"+colName+"'" +
                 "and table_schema='"+info.getActualTableName().getSchema()+"'";
         return  queryDatabaseBySql(sql);
     }

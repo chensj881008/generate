@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
     <property name="LOG_HOME" value="logs"/>
-    <property name="PROJECT_NAME" value="mbk"/>
-    <!-- 控制台输出 -->
+    <property name="PROJECT_NAME" value="generate"/>
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -20,7 +19,7 @@
     </appender>
     <!-- 综合时间与大小的滚动策略，先按天滚动，文件大于100mb时再按大小滚动 -->
     <appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_HOME}/hic.log</file>
+        <file>${LOG_HOME}/generate.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_HOME}/logs/${PROJECT_NAME}-%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -38,7 +37,7 @@
 
     <!-- 错误日志 -->
     <appender name="errorlogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_HOME}/hic-error.log</file>
+        <file>${LOG_HOME}/generate-error.log</file>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>ERROR</level>
         </filter>
